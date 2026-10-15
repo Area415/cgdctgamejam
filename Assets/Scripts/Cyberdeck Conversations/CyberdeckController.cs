@@ -120,6 +120,7 @@ public class CyberdeckController : MonoBehaviour
 
     public void SetCyberdeckState(int stateIndex)
     {
+        CloseHistoryIfOpen();
         currentStateIndex = stateIndex;
 
         for (int i = 0; i < homeStates.Length; i++)
@@ -169,6 +170,7 @@ public class CyberdeckController : MonoBehaviour
 
     public void selectTab(int index)
     {
+        CloseHistoryIfOpen();
         for (int i = 0; i < topBarTabs.Length; i++)
         {
             topBarTabs[i].SetActive(i == index);
@@ -220,9 +222,7 @@ public class CyberdeckController : MonoBehaviour
             }
             chatDialogueView.enabled = false;
         }
-    }
-
-    public void OpenMessagesTab()
+    } public void OpenMessagesTab()
     {
         selectTab(1);
     }
@@ -268,6 +268,8 @@ public class CyberdeckController : MonoBehaviour
         isWaitingForExit = false;
 
         PlayCyberdeckSFX("cyberdeckClose");
+
+        ResetCyberdeckUI();
 
         if (chatDialogueView != null)
         {
@@ -357,9 +359,7 @@ public class CyberdeckController : MonoBehaviour
                 btn.interactable = true;
             }
         }
-    }
-
-    public void ExitAndLoadScene()
+    } public void ExitAndLoadScene()
     {
         SceneManager.LoadScene("JenScene");
     }
@@ -396,15 +396,7 @@ public class CyberdeckController : MonoBehaviour
 
         PlayCyberdeckSFX("cyberdeckClose");
 
-        if (historyOverlayPanel != null)
-        {
-            historyOverlayPanel.SetActive(false);
-            selectTab(0);
-            if (tabParent != null)
-            {
-                tabParent.SetActive(true);
-            }
-        }
+        ResetCyberdeckUI();
 
         if (chatDialogueView != null)
         {
@@ -436,8 +428,47 @@ public class CyberdeckController : MonoBehaviour
         }
     }
 
+    private void ResetCyberdeckUI()
+    {
+        if (historyOverlayPanel != null) historyOverlayPanel.SetActive(false);
+        if (minigamePanel != null) minigamePanel.SetActive(false);
+        if (tabParent != null) tabParent.SetActive(true);
+        
+        if (currentStateIndex >= 0)
+        {
+            if (currentStateIndex < homeStates.Length && homeStates[currentStateIndex] != null)
+            {
+                homeStates[currentStateIndex].SetActive(true);
+            }
+                
+            if (currentStateIndex < messageStates.Length && messageStates[currentStateIndex] != null)
+            {
+                messageStates[currentStateIndex].SetActive(true);
+            }
+        }
+
+        selectTab(0);
+    }
+    
+    private void CloseHistoryIfOpen()
+    {
+        if (historyOverlayPanel != null && historyOverlayPanel.activeSelf)
+        {
+            historyOverlayPanel.SetActive(false);
+            if (tabParent != null)
+            {
+                tabParent.SetActive(true);
+            }
+        }
+    }
+
     public void ToggleHistoryOverlay()
     {
+        if (minigamePanel != null && minigamePanel.activeSelf)
+        {
+            minigamePanel.SetActive(false);
+        }
+
         if (historyOverlayPanel != null)
         {
             bool isActive = !historyOverlayPanel.activeSelf;
@@ -459,6 +490,19 @@ public class CyberdeckController : MonoBehaviour
                 }
             }
 
+            if (currentStateIndex >= 0)
+            {
+                if (currentStateIndex < homeStates.Length && homeStates[currentStateIndex] != null)
+                {
+                    homeStates[currentStateIndex].SetActive(!isActive);
+                }
+                    
+                if (currentStateIndex < messageStates.Length && messageStates[currentStateIndex] != null)
+                {
+                    messageStates[currentStateIndex].SetActive(!isActive);
+                }
+            }
+
             if (!isActive)
             {
                 selectTab(0); 
@@ -468,6 +512,11 @@ public class CyberdeckController : MonoBehaviour
 
     public void ToggleMinigame()
     {
+        if (historyOverlayPanel != null && historyOverlayPanel.activeSelf)
+        {
+            historyOverlayPanel.SetActive(false);
+        }
+
         if (minigamePanel != null)
         {
             bool isActive = !minigamePanel.activeSelf;
@@ -488,7 +537,20 @@ public class CyberdeckController : MonoBehaviour
                     }
                 }
             }
-            
+
+            if (currentStateIndex >= 0)
+            {
+                if (currentStateIndex < homeStates.Length && homeStates[currentStateIndex] != null)
+                {
+                    homeStates[currentStateIndex].SetActive(!isActive);
+                }
+                    
+                if (currentStateIndex < messageStates.Length && messageStates[currentStateIndex] != null)
+                {
+                    messageStates[currentStateIndex].SetActive(!isActive);
+                }
+            }
+
             if (!isActive)
             {
                 selectTab(0);
