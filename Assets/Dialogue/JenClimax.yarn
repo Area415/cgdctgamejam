@@ -1,8 +1,5 @@
 ﻿title: LilGuy_Respite
 ---
-<<expression Luna_Neutral neutral>>
-<<expression Nubs neutral>>
-Luna: <i>His electric eyes wander and become mesmerized by the sky's dusky colors.</i>
 <<if visited("Bad_Outcome") == true>>
 Nubs: Today is still better than all the other days I have lived in the lab.
 <<endif>>
@@ -71,14 +68,14 @@ title: LilGuy_Day
         Nubs: …!
         Luna: Okay, so you can't access it. So what? What do YOU want to do?
         <<expression Nubs arms_worried>>
-        Luna: <i>Nubs is genuinely stumped by my question. Nothing in his database is able to retrieve a clear answer.</i>
+        Nubs: I...
         <<expression Luna_Neutral shy_neutral>>
         Luna: I know I'm supposed to drop you off at your master's, but…it doesn't seem like you even wanna go back to pokes and firestorms.
         Luna: You…deserve to live…        
         <<expression Nubs neutral>>
         Nubs: Luna…
         <<expression Luna_Neutral shy>>
-        Luna: (Ugh, why am I even saying this? It's like I'm trying to give myself a pep talk.)
+        Luna: (Ugh, why am I even saying this?)
         // Stop music
         <<stopMusic>>
         <<expression Luna_Neutral surprised>>
@@ -111,8 +108,6 @@ title: MaxxIntro
 <<wait 1>>
 ???_Maxx: Straight to jail.
 <<expression Luna_Neutral arms_annoyed>>
-Luna: <i>A douchebag with an augmented glass jaw rolls up next to me on his bulky motorbike. The thing has been customized to bits to show off—and not to drive.</i>
-Luna: <i>I press my weight deeper into my motorbike, ready to bounce at any moment.</i>
 Luna: Who the hell are you?
 <<expression Maxx intrigued>>
 Maxx: The one true ascended adonis of AGENTS, Maxx.
@@ -176,7 +171,6 @@ title: MaxxChoices
     <<jump BadEnding1>>
 -> Don't take the deal.
     <<set $goodend += 1>>
-    Luna: (Do it scared. Even if it fucks me over.)
     <<expression Luna_Neutral arms_neutral>>
     <<expression CompanionNubs arms_neutral>>
     Luna: No deal. I'm keeping him. And his name’s Nubs.
@@ -189,7 +183,6 @@ title: MaxxChoices
     Luna: If you want him, then you're gonna have to get him!
     // Motorcycle SFX sound
     <<playSFX lunaMotorcycle>>
-    Luna: <i>And with that, I start hauling ass back to Root Town.</i>
     <<pose Luna_Neutral LunaFadeOut_BridgeBike>>
     <<pose CompanionNubs CompanionNubsFadeOut>>
     <<wait 1>> 
@@ -220,8 +213,7 @@ title: MaxxChoices
     Maxx: …
     <<expression Maxx annoyed>>
     Maxx: Tch!
-    Luna: <i>The dumbass was so into himself, making it easy for me and Nubs to escape and leave him in the dust.</i>
-    Luna: <i>I was already hauling my ass back to Root Town.</i>
+    Luna: <i>The guy was so into himself, making it easy for me and Nubs to leave him in the dust.</i>
 
 <<expression Maxx annoyed>>
 Maxx: Well played. But it’s not over.
@@ -247,11 +239,10 @@ Luna: (The stakes are too high. I don't want to owe anyone anything. Not anymore
 Luna: Fine.
 <<expression Maxx intrigued>>
 <<expression CompanionNubs wave_worried>>
-Nubs: L-Luna, no!
-Luna: <i>I toss Nubs over to the overgrown gigachad. The creature is just a prototype, after all.</i>
+Nubs: Luna, no!
 Maxx: Smart girl. I knew you'd make the right choice.
-Nubs: N-No…!
 Maxx: To the scrapyard, pillbug!
+Nubs: N-No…!
 // Play Beep SFX
 <<playSFX beep>>
 <<expression CompanionNubs wave_neutral>>
@@ -264,8 +255,9 @@ Nubs: …
 <<exit Maxx>>
 <<exit CompanionNubs>>
 Luna: <i>I block out the gigachad's cackling as he rides away with the city’s most dangerous weapon.</i> 
-Luna: <i>I sigh, turning to look at Frisscity’s glistening cityscape one last time before I ride off as if nothing ever happened.</i>
+Luna: <i>I look at Frisscity’s glistening cityscape one last time before I ride off as if nothing ever happened.</i>
 Luna: <i>Because nothing did.</i>
+<<playSFX lunaMotorcycle>>
 Luna: <i>Tonight was just another night of trying to survive.</i>
 <<pose Luna_Neutral LunaFadeOut_BridgeBike>>
 <<wait 1>>
@@ -303,25 +295,19 @@ Nubs: …
 <<expression Luna_Riding worried>>
 Luna: W-What the hell?!
 Luna: Nubs!? Hey! Wake up!
-Luna: <i>A hypnotic swirl dominates Nubs's screenface. His body freezes in place, clinging onto the nape of my neck as I race past another bus.</i>
-Luna: <i>The more I stare at the spiral, the more I feel…enticed by it.</i>
-Luna: <i>I quickly blink the sensation away, shaking my head and turning back to the road I’m racing down.</i>
 <<expression Luna_Riding neutral>>
-Luna: (I can’t look at that thing. It’s like it’s drilling a hole into my mind…)
+Luna: Dammit, he can't hear me.
 Luna: <i>Suddenly, a new voice takes over Nubs.</i>
 // Do NOT call Maxx’s sprite to appear
 Maxx: There you are.
 <<expression Luna_Riding worried>>
-Luna: (Shit, he can track me…?!)
+Luna: (Shit, that chad can track me?!)
 // Play SFX Maxx motorcycle sound
 <<playSFX maxxMotorcycle>>
-A motor mixed with ego and neon particles roars behind me in the distance.
 Maxx: Won't be long before I catch up. 
 <<expression Luna_Riding neutral>>
-Luna: <i>My breath stalls. Sweat starts beading at the back of my neck.</i>
-Luna: (I knew there was a cost to shoving it to AGENTS and that overgrown gigachad.)
-Luna: (But I'm totally fucking screwed!)
-Luna: (Was this choice even worth it…?!)
+Luna: (I'm totally fucking screwed!)
+Luna: (Was this choice even worth it…?)
 <<jump Cybergulls>>
 ===
 
@@ -332,43 +318,41 @@ title: Cybergulls
 <<playSFX caws>>
 <<expression Luna_Riding surprised>>
 Luna: !!!
-Luna: <i>The squawk of a cybergull splits the sky. I look up, keeping my foot on the accelerator.</i>
 <<if $withCog == true>>
 // Enter Cybergull with cog on
 <<place CyberSeagull>>
 <<expression CyberSeagull cog>>
-Luna: (It’s that gull from the dumpster…)
-Luna: (He thugged it out and now he’s able to fly with that cog…)
+Luna: (It’s that cybergull from the dumpster…)
+Luna: (He thugged it out and now he’s flying with that cog…)
 <<endif>>
 <<if $withCog == false>>
 // Enter Cybergull without the cog on
 <<place CyberSeagull>>
 <<expression CyberSeagull warrior>>
-Luna: (It’s that gull from the dumpster…)
+Luna: (It’s that cybergull from the dumpster…)
 <<endif>>
 // SFX Cybergull S 
 <<playSFX caw>>
-Luna: <i>He lets out another loud, electrifying battle cry that rings out across The Bridge.</i>
 // Exit Cybergull
 <<pose CyberSeagull SceneSample_CybergullFadeOut>>
 <<wait 1>>
 <<exit CyberSeagull>>
 Luna: <i>Shadows materialize in the distance, and I begin to see a whole horde of cybergulls flap towards us.</i>
-Luna: (HE’S A GANG LEADER?!?!)
+Luna: (WAIT...HE’S A GANG LEADER?!?!)
 <<expression Luna_Riding neutral>>
-Luna: (Wait…)
+Luna: (Hold on…)
 Luna: <i>The Bridge is a prime roost for cybergulls, who love to swoop down and swipe whatever shines the brightest.</i>
-Luna: (This could actually be my key to ditching Maxx for good!)
+Luna: (This might actually work...!)
 // Play SFX Maxx motorcycle sound
 <<playSFX maxxMotorcycle>>
 <<expression Luna_Riding surprised>>
 <<place Maxx_Riding>>
-Luna: <i>Suddenly I hear tires screeching and then, in a blink of an eye, I see Maxx riding right beside me on his shining stallion of iron garbage.</i>
 Maxx: Boo.
 <<expression Luna_Riding neutral>>
 Luna: …
 Luna: <i>We're both speeding down the road, neck and neck.</i>
-Maxx: Why aren’t you pulling over? I GOT you. You’re going to JAIL!
+Maxx: Why aren’t you pulling over? I GOT you. 
+Maxx: You’re going to JAIL!
 Luna: Not yet.
 // SFX motorcycle tires
 <<playSFX tiresScreech>>
@@ -394,14 +378,13 @@ title: Cybergull_CG
 // Play SFX Cybergull Battlecry sound effect
 <<playSFX battlecry>>
 <<wait 1>>
-Luna: <i>I stop my bike at the edge of the shoulder lane, watching as the horde of birds swell before descending upon him and the highway below.</i>
+Luna: <i>A horde of birds swell in the sky before descending upon Maxx and the highway below.</i>
 Maxx: No no no no NOOOOO!
 Luna: <i>The birds are relentless.</i>
 Luna: <i>Pecking, ripping, and ransacking anything that glows, which includes both Maxx and his precious state-of-the-art junkyard motorcycle.</i>
 Maxx: Not the face! Not the JAW!! Now the JAWWWWW!!
-Luna: <i>I flinch and look away, refusing to watch the gulls tear Maxx’s prized possession and his ego away from him, limb from limb.</i>
 Maxx: AHHHHHHHHHHHHRRRRGHHHH!!!
-Luna: <i>The cybergulls slowly disperse back into dusk, leaving tokens of their appreciation in the form of noxious droppings spittled across the concrete.</i>
+Luna: <i>The cybergulls slowly disperse back into dusk, leaving tokens of noxious droppings spittled across the concrete.</i>
 Luna: <i>Whatever is left of Maxx and his motorcycle remains on the highway, like roadkill.</i>
 <<wait 1>>
 <<fadeOut 2>>
@@ -423,21 +406,19 @@ title: BridgeResolution
 <<place CompanionNubs>>
 <<expression CompanionNubs agents>>
 <<wait 1>>
-Luna: <i>We make it safely to the outskirts of Root Town. I park on the side of the road. Frisscity's lights glitter from the other side of the bridge.</i>
+Luna: <i>We make it safely to the outskirts of Root Town. Frisscity's lights glitter from the other side of the bridge.</i>
 // Play SFX Cybergull M
 <<playSFX caws>>
 <<expression Luna_Neutral surprised>>
 // Enter Cybergull with cog on
 <<place CyberSeagull>>
 <<expression CyberSeagull cog>>
-Luna: <i>The cybergull gang leader descends down from the skies, hovering over my place on the road. The massive cog twinkles in the night sky.</i>
 <<expression Luna_Neutral neutral>>
 Luna: It’s him…
 Luna: <i>He watches me carefully through his scarred eye…</i>
 <<expression Luna_Neutral shy_annoyed>>
 Luna: <i>…Before deciding to poop on me.</i>
-Luna: S-Shit!
-Luna: <i>Literally. Happy with his revenge, the cybergull departs into the darkness.</i>
+Luna: S-Shit...!
 // Exit Cybergull
 <<pose CyberSeagull SceneSample_CybergullFadeOut>>
 <<wait 1>>
@@ -453,11 +434,11 @@ Luna: (This stuff isn’t gonna come out of my jacket.)
 <<expression Luna_Neutral neutral>>
 <<place Nubs>>
 <<expression Nubs agents>>
-Luna: <i>A sharp noise buzzes from Nubs and I turn to look at him.</i>
-<<expression Luna_Neutral surprised>>
+Luna: Hey Nubs, can you hear me? Nubs...?
 <<wait 1>>
 <<expression Nubs worried>>
-Nubs: H-Huh?
+<<expression Luna_Neutral surprised>>
+Nubs: H-Huh...?
 <<expression Luna_Neutral happy>>
 Luna: Nubs! You're back!
 <<expression Nubs arms_worried>>
@@ -578,7 +559,7 @@ Luna: Now, as for where to take you…
 <<expression Luna_Neutral arms_neutral>>
 <<expression Nubs neutral>>
 Luna: (The girls are in for one wild ride tonight…I hope they don't kick me out for good.)
-Luna: <i>We take one last look at Frisscity together. Nubs looks just as mesmerized as he was when we were on the other side.</i>
+Luna: <i>We take one last look at Frisscity together.</i>
 Luna: Hey. What do you think about the views from here?
 Nubs: It's…different.
 <<expression Nubs happy>>
@@ -610,14 +591,10 @@ title: TheArrival
 Luna: <i>I park my motorbike on the curb with Nubs on my shoulder.</i>
 Luna: <i>A few jumps through some overgrown weed patches, and I'm finally at the doorstep of the abandoned warehouse I call home.</i>
 Nubs: What is this place made of?
-Luna: <i>I hear Nubs from over my shoulder.</i>
-Luna: <i>Something keeps flapping and tickling the back of my neck, but I don't think too much about it.</i>
-Luna: <i>The weight of tonight has me completely trashed.</i>
 Luna: A few train cars we cobbled together after Frisscity closed our nearby train station. 
-Luna: Frisscity politicians said there was “too much riffraff from this side of town.”
-Luna: That's their shitty excuse, at least.
+Luna: They said there was “too much riffraff" from this side of town.
 Nubs: …
-Luna: (Well, here goes nothing…)
+Luna: Well, here goes nothing…
 Luna: <i>I take a deep breath and step inside.</i>
 <<wait 1>>
 <<fadeOut 2>>
@@ -646,7 +623,6 @@ Kaya: And what did you just bring inside?!
 Luna: His name is Nubs and he's a cyberpet.
 Nubs: We've been over this. I am not a pet!!!
 Luna: And apparently he's gotten sassier, too.
-Luna: (Why is he sounding more like me?)
 <<expression Kaya_Neutral neutral>>
 Kaya: I-It can talk?!
 <<place Nat>>
@@ -662,17 +638,17 @@ Kaya: You’ll need a crate for that thing, too. And a leash that won’t pull o
 <<expression Luna_Neutral arms_surprised>>
 <<expression CompanionNubs happy_evolution>>
 Luna: Ears…?
-Luna: ...
 Nubs: ...
-<<expression Luna_Neutral shy_surprised>>
+Luna: ...
+<<expression Luna_Neutral arms_delivery_dropped>>
+<<wait 0.5>>
 Luna: W-What the hell!? He didn't look like that a few minutes ago, I swear!
 Kaya: SEE? We can't trust him. He's gonna grow, and shed, and leave molts everywhere. Can't have that in my witch's brew.
-Luna: <i>Nubs wiggles off my shoulder and onto the living room floor, his new set of ears twitching.</i>
 Nubs: My systems have advanced and I’m evolving into a new, more improved form!
 <<expression Nat cute>>
 Nat: Ooooh, what a cute lil boi in his cute little form! I say YES to keeping him!
 Kaya: And I vote NO.
-<<expression Luna_Neutral arms_neutral>>
+<<expression Luna_Neutral arms_annoyed>>
 Luna: Called it.
 ///////////////// Is there some animation we can do where Nat overlaps everyone and moves across the screen to “take” Lil Guy’s sprite back over to her side of the screen?
 Nat: Now lemme at him!
@@ -682,22 +658,20 @@ Nubs: Unhand me, you strange scaly humanoid!!
 Nat: Never seen a half-lizard before, eh? 
 <<expression Nat cute>>
 Nat: Well now you have! And here's to more firsts~!
-Luna: <i>Nat starts fiddling around with his metal body in true scientific fashion.</i>
 Nubs: N-No! No more POKES…!
-Luna: <i>Nat presses something near his tadpole tail.</i>
 // Play SFX Detonation noise
 <<playSFX detonation>>
 <<expression CompanionNubs error_evolution>>
 <<expression Nat scared>>
-<<expression Luna_Neutral surprised>>
+<<expression Luna_Neutral arms_delivery_dropped>>
 <<expression Kaya_Neutral neutral>>
-Luna: <i>Chaos ensues.</i>
-<<expression Luna_Neutral annoyed>>
+<<wait 1>>
 Luna: What the hell did you press!?
 Nat: I-I don't know! I was just tinkering around, and—
 <<expression Kaya_Neutral annoyed>>
 Kaya: You brought a BOMB into the house?!
-Luna: Hey, he was just a normal little guy before y'all started screwing around with him!
+<<expression Luna_Neutral annoyed>>
+Luna: Hey, he was just a normal little guy before Nat started dissecting him!
 Nat: W-Wait, I don't think—
 Kaya: Get him out. NOW!!
 Nat: Just let me see…
@@ -727,8 +701,7 @@ title: RoommateDiscussion
 <<expression Nat neutral>>
 <<place Kaya_Neutral>>
 <<expression Kaya_Neutral neutral>>
-Luna: <i>Nat was able to deactivate Nubs's “detonation” mode.</i>
-Luna: <i>A ball of wires sprawls across our living room table, snaking into the large bug’s body as Nat hooks him up to her computer.</i>
+Nat: Phew, that was close! Detonation averted.
 Kaya: So he IS a bomb.
 Luna: Trust me, running away with a top-secret weapon wasn’t on my bingo list. But yeah, pretty much.
 Kaya: Of all the things you had to bring back home. Unbelievable.
@@ -798,7 +771,7 @@ Kaya: Then he stays.
 <<expression CompanionNubs happy_evolution>>
 <<expression Luna_Neutral surprised>>
 Luna: R-Really?
-Nat: Yeah, really? I thought you'd never say yes, Kaya.
+Nat: Yeah, really?! I thought you'd never say yes, Kaya!
 Kaya: There's something about Luna’s energy. It feels…lighter. Like something's shifted. It must be connected to the Fool card I drew for her today!
 <<expression Luna_Neutral annoyed>> 
 Luna: Hey, I’m no fool!
@@ -808,11 +781,67 @@ Kaya: Maybe even a new choice…?
 <<expression CompanionNubs neutral_evolution>>
 Luna: (A choice…)
 <<expression Kaya_Neutral neutral>>
-Kaya: Let’s talk more about it in the morning. You've definitely given us all a LOT of trouble to think through. 
+Kaya: Let’s talk more about it in the morning. 
+<<expression Kaya_Neutral annoyed>>
+<<expression Luna_Neutral arms_delivery_dropped>>
+<<expression Nat scared>>
+<<expression CompanionNubs neutral_evolution>>
+Kaya: And that includes a conversation about <i>your rent</i>, too.
+Kaya: You've definitely given us all a LOT of trouble to think through. 
+Luna: Wait, so...you're giving me another day for rent?
+<<expression Luna_Neutral surprised>>
+<<expression Kaya_Neutral neutral>>
+<<expression Nat neutral>>
+Kaya: Another month.
 <<expression Kaya_Neutral happy>>
-Kaya: But for now, it's a unanimous vote.
-Nat: YAY!
-Nat: Hopefully I'll be able to find out more answers, too. 
+<<expression CompanionNubs happy_evolution>>
+<<expression Nat cute>>
+<<expression Luna_Neutral shy_annoyed>> 
+Kaya: If you keep up this Fool energy.
+<<if $sample == 1>>
+<<expression Kaya_Neutral neutral>>
+<<expression Luna_Neutral neutral>> 
+<<expression Nat neutral>>
+Luna: But would a fool be able to get you THIS?
+<<place BeautySample>>
+Kaya: Wait is that...
+<<expression Kaya_Neutral happy>>
+Kaya: A beauty sample from Queenie!?
+<<expression Luna_Neutral arms_neutral>> 
+Luna: A SIGNED beauty sample from Queenie.
+Kaya: Omigods!
+<<expression Nat cute>>
+Nat: Wowie!
+<<exit BeautySample>>
+<<expression Nat neutral>>
+<<expression Luna_Neutral happy>>
+Luna: So um, about that rent amount...
+<<expression Luna_Neutral arms_happy>>
+Luna: Does this knock down what I owe?
+<<expression Kaya_Neutral annoyed>>
+<<expression Luna_Neutral arms_neutral>>
+Kaya: No.
+<<expression Kaya_Neutral happy>>
+<<expression Luna_Neutral arms_surprised>> 
+Kaya: But it makes up for all your past dues.
+<<expression Luna_Neutral shy_surprised>> 
+Luna: Hey, I'll take that!
+<<expression Luna_Neutral shy_neutral>> 
+<<expression Nat cute>>
+Nat: Did you get anything for me?
+<<expression Luna_Neutral shy>> 
+<<expression CompanionNubs anger_evolution>>
+<<expression Nat neutral>>
+Luna: Uh...does Nubs count as a gift?
+Nubs: Hey!
+<<else>>
+Luna: Fool it is...
+<<endif>>
+<<expression Nat neutral>>
+<<expression Luna_Neutral neutral>> 
+Nat: YAY! Hopefully I'll be able to find out more answers, too. 
+<<expression CompanionNubs neutral_evolution>>
+<<expression Kaya_Neutral neutral>>
 Nat: I’ll keep inspecting Nubs’s code tomorrow and see what else I can find. I’ve already copied his entire codebase onto my drive.
 Nubs: I would also like to know what's beyond those firewalls. And what my purpose was…
 Nat: Yes!
@@ -821,7 +850,7 @@ Nat: Which means more time for t-i-n-k-e-r-i-n-g~
 <<expression CompanionNubs anger_evolution>>
 Nubs: !!!
 <<expression Luna_Neutral arms_neutral>>
-Luna: Great, glad we got it all figured out or whatever. I'm just ready to rot for the next three days…
+Luna: Glad we got it all figured out, or whatever. I'm just ready to rot in bed for the next three days…
 // Play two SFX notification pings
 <<playSFX notification>>
 <<expression Luna_Neutral arms_cyberdeck>>
