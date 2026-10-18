@@ -2,11 +2,12 @@
 ---
 <<declare $leavesEarly = false>>
 <<if $bigJob == false>>
-    <<jump DivorcedDad>>
+   <<jump DivorcedDad>>
 <<else>>
-    <<jump Influencer>>
+   <<jump Influencer>>
 <<endif>>
 ===
+
 
 title: DivorcedDad
 ---
@@ -15,259 +16,259 @@ title: DivorcedDad
 <<fadeIn 2>>
 <<place Luna_Neutral>>
 <<expression Luna_Neutral arms_delivery_benji>>
-Luna: <i>The delivery takes me to the Meridian District, home to the tech zillionaires and their corporate grifters. I approach a high-end luxury apartment tower and feel its tinted windows judge me as I park my motorbike right outside the entrance.</i> 
+Luna: <i>The delivery takes me to the Meridian District, home to the tech zillionaires and their corporate grifters.</i>
 <<place CompanionNubs>>
 <<expression CompanionNubs wave_worried>>
 Nubs: W-Wait up!
-Luna: <i>The glass lobby doors swing open, and I step inside to search for the owner of this sad bag of food.</i>
-Luna: <i>A man in an outdated puffer vest and overpriced pants immediately walks over, waving at me.</i>
 <<place Dad_Neutral>>
 <<expression Dad_Neutral neutral>>
 ???_Benji: Delivery for Benji?
 Luna: Yeah.
 <<expression CompanionNubs neutral>>
 <<expression Dad_Neutral happy>>
-Benji: Hey, you're from Root Town, right? 
+Benji: Hey, you're from Root Town, right?
 Luna: <i>He points at my motorbike's decal outside, which is a large gnarled tree. The symbol of Root Town.</i>
-Luna: (The guy’s got some crazy vision with those glasses…) 
+Luna: (The guy’s got some crazy vision with those glasses…)
 <<expression Dad_Neutral cringe>>
 Benji: I'm from Root Town, too. HELLA!
 <<expression Luna_Neutral arms_delivery_benji_annoyed>>
 Luna: (And he’s hella cringe.)
 <<expression Luna_Neutral arms_annoyed>>
 <<expression Dad_Neutral delivery>>
-Luna: <i>I shove the order into the man’s hands and mark my order as complete on the SL0P app without another word.</i>
-Luna: <i>But he lingers in the lobby.</i>
-Luna: (It feels like he's REALLY desperate to say something, but has no one to say it to.)
+Luna: …
+Benji: …
+Luna: (Why is he lingering? Awkward.)
+
+
 
 
 -> Ignore him and leave
-    <<set $badend += 1>>
-    <<expression Dad_Neutral delivery_annoyed>>
-    <<expression CompanionNubs worried>>
-    Luna: <i>I turn around and leave. A job's a job, and I finished it.</i>
-    <<playSFX lunaMotorcycle>>
-    <<pose Luna_Neutral SceneSample_LunaFadeOut>>
-    <<pose CompanionNubs CompanionNubsFadeOut>>
-    <<pose Dad_Neutral DadFadeOut>>
-    <<wait 1>>
-    <<exit Luna_Neutral>>
-    <<exit CompanionNubs>>
-    <<exit Dad_Neutral>>
-    <<fadeOut 2>>
-    <<camera BlackImage>>
-    <<fadeIn 1>>
-    //Only show a black screen and the dialogue box
-    Luna: <i>20 minutes later, I get a negative rating on the SL0P app and a violation as the cherry on top. It said the food looked like it'd been tampered with…</i>
-    Luna: …
-    Nubs: I was hungry…
-    Luna: <i>But who cares? A person who lives in that building is rich enough to get more food without batting an eye…</i>
-    <<fadeOut 1>>
-    <<stopMusic>>
-    <<jump Bad_Outcome>>
+   <<set $badend += 1>>
+   <<expression Dad_Neutral delivery_annoyed>>
+   <<expression CompanionNubs worried>>
+   Luna: (A job's a job. I finished it.)
+   <<playSFX lunaMotorcycle>>
+   <<pose Luna_Neutral SceneSample_LunaFadeOut>>
+   <<pose CompanionNubs CompanionNubsFadeOut>>
+   <<pose Dad_Neutral DadFadeOut>>
+   <<wait 1>>
+   <<exit Luna_Neutral>>
+   <<exit CompanionNubs>>
+   <<exit Dad_Neutral>>
+   <<fadeOut 2>>
+   <<camera BlackImage>>
+   <<fadeIn 1>>
+   //Only show a black screen and the dialogue box
+   Luna: <i>20 minutes later, I get a negative rating on the SL0P app and a violation as the cherry on top. It said the food looked like it'd been tampered with…</i>
+   Luna: …
+   Nubs: I was hungry…
+   Luna: <i>But who cares? A person who lives in that building is rich enough to re-order without batting an eye…</i>
+   <<fadeOut 1>>
+   <<stopMusic>>
+   <<jump Bad_Outcome>>
 -> Stare at him, expecting him to talk
-    <<set $goodend += 1>>
-    <<expression Dad_Neutral delivery_happy>>
-    Benji: Giving me the Gen Z stare, huh?
-    <<expression Luna_Neutral annoyed>>
-    Luna: Must have learned it from my Gen Z grandma. That line's like 40 years old, by the way.
-    Luna: (Which is probably how old he is... Or even older.)
-    Luna: What do you want?
-    Benji: Oh, you’ve got time? Awesome! I'm glad the SL0P app still hires humans and gives their employees—er, contractors—paid breaks.
-    Luna: <i>We don’t. And time's ticking.</i>
+   <<set $goodend += 1>>
+   <<expression Dad_Neutral delivery_happy>>
+   Benji: Giving me the Gen Z stare, huh?
+   <<expression Luna_Neutral annoyed>>
+   Luna: Must have learned it from my Gen Z grandma. That line's like 40 years old, by the way.
+   Luna: What do you want?
+   Benji: Oh, you’ve got time? Awesome! I'm glad the SL0P app still hires humans and gives their employees—er, contractors—paid breaks.
+   Luna: We don’t. And time's ticking.
+
 
 <<expression Dad_Neutral delivery_cringe>>
-Benji: I just HAVE to tell someone. I'm going to get my first AGENTS implant tomorrow! I’m going all-in on eye surgery. Not even the best AGENTS glasses can beat an implant’s eyesight. 
+Benji: I just HAVE to tell someone. I'm going to get my first AGENTS implant tomorrow! I’m going all-in on eye surgery. Not even the best AGENTS glasses can beat an implant’s eyesight.
 Luna: (So that’s why his vision was so creepy good…)
 Benji: My doc said I should be on an all-liquid diet for best results. But tomorrow, I'll be a new man who can finally stop eating sad soups!
 <<expression Dad_Neutral delivery_nofood>>
-Luna: <i>He opens his delivery bag and frowns.</i>
 <<set $badend += 1>>
 Benji: Hey, what gives!? Where’s my side order of ion kelp crystals!?
 <<expression CompanionNubs happy>>
 <<expression Luna_Neutral arms_annoyed>>
-Luna: <i>I look at Nubs, who looks suspiciously full all of a sudden.</i>
+<<wait 1>>
 <<expression CompanionNubs worried>>
 Nubs: Oops.
-Luna: (How does he even eat... and when did he sneak that out of the bag?)
 <<jump DivorcedDad_Surgery>>
 ===
 
+
 title: DivorcedDad_Surgery
 ---
-Luna: <i>The man isn't happy—and I can't afford another violation on the SL0P app.</i>
-Luna: (He was yapping about his dumb surgery. Maybe I can distract him…)
+Luna: (I can't afford another violation on the SL0P app.)
+
 
 -> Ask him about the AGENTS implant
-    <<expression Luna_Neutral neutral>>
-    Luna: Why are you getting the surgery?
-     <<expression Dad_Neutral delivery_cringe>>
-    Benji: Yes, my surgery!
--> Congratulate him sarcastically
-    <<set $goodend += 1>>
-    <<expression Luna_Neutral neutral_shy>>
-    Luna: Congrats. I'm sure your surgery will be SO life-changing…
+   <<expression Luna_Neutral neutral>>
+   Luna: Why are you getting the surgery?
     <<expression Dad_Neutral delivery_cringe>>
-    Benji: Thank you! I'm excited for it, too.
-    <<expression CompanionNubs arms_happy>>
-    Nubs: …
-    Luna: (Ugh. Not you, too…)
+    <<expression CompanionNubs neutral>>
+   Benji: Yes, my surgery!
+-> Congratulate him sarcastically
+   <<set $goodend += 1>>
+   <<expression Luna_Neutral neutral_shy>>
+   <<expression CompanionNubs neutral>>
+   Luna: I'm sure your surgery will be SO life-changing…
+   <<expression Dad_Neutral delivery_cringe>>
+   <<expression CompanionNubs arms_happy>>
+   Benji: Thank you! I'm excited for it, too.
+   Nubs: …
+   Luna: (Ugh. Not you, too.)
 -> Leave him and go
-    Luna: Time to bounce.
-    <<expression CompanionNubs arms_worried>>
-    Nubs: I'm not sure that was a good idea…
-    // Motorcycle SFX sound
-    <<playSFX lunaMotorcycle>>
-    Luna: <i>I scoop up the creature and put him back on my motorbike. I ride away, leaving the deadbeat customer in a cloud of smoke to choke on.</i>
-    Luna: <i>Because fuck AGENTS.</i>
-    <<pose Luna_Neutral SceneSample_LunaFadeOut>>
-    <<pose CompanionNubs CompanionNubsFadeOut>>
-    <<pose Dad_Neutral DadFadeOut>>
-    <<wait 1>>
-    <<exit Luna_Neutral>>
-    <<exit CompanionNubs>>
-    <<exit Dad_Neutral>>
-    <<fadeOut 2>>
-    <<camera BlackImage>>
-    <<fadeIn 1>>
-    <<set $badend += 1>>
-    //I imagine a black screen and the dialogue box
-    Luna: <i>20 minutes later, I get a negative rating on the SL0P app and a violation as the cherry on top. It said the food looked like it'd been tampered with.</i>
-    Luna: <i>Thanks, Nubs…</i>
-    Luna: <i>But who cares? A person who lives in that building is rich enough to get more food without batting an eye…</i>
-    <<fadeOut 1>>
-    <<stopMusic>>
-    <<jump Bad_Outcome>>
+   <<expression CompanionNubs arms_worried>>
+   Nubs: I'm not sure that was a good idea…
+   // Motorcycle SFX sound
+   <<playSFX lunaMotorcycle>>
+   Luna: <i>I ride away, leaving the deadbeat customer in a cloud of smoke to choke on.</i>
+   Luna: <i>Because fuck AGENTS.</i>
+   <<pose Luna_Neutral SceneSample_LunaFadeOut>>
+   <<pose CompanionNubs CompanionNubsFadeOut>>
+   <<pose Dad_Neutral DadFadeOut>>
+   <<wait 1>>
+   <<exit Luna_Neutral>>
+   <<exit CompanionNubs>>
+   <<exit Dad_Neutral>>
+   <<fadeOut 2>>
+   <<camera BlackImage>>
+   <<fadeIn 1>>
+   <<set $badend += 1>>
+   //I imagine a black screen and the dialogue box
+   Luna: <i>20 minutes later, I get a negative rating on the SL0P app and a violation as the cherry on top. It said the food looked like it'd been tampered with.</i>
+   Luna: <i>Thanks, Nubs…</i>
+   Luna: <i>But who cares? A person who lives in that building is rich enough to get more food without batting an eye…</i>
+   <<fadeOut 1>>
+   <<stopMusic>>
+   <<jump Bad_Outcome>>
 Benji: I'm getting it because all the guys I work with already have something augmented.
 Benji: They got their hands done to type faster, or their brains to sync directly with the company’s internal systems. Plus, I’ll finally be able to ditch the glasses and look less chopped.
-Luna: (Who’s gonna tell him… and why does he keep using slang from decades ago?)
+Luna: (Who’s gonna tell him…)
 Benji: This is a dream job. Everyone in Root Town wants to be me.
 <<expression Dad_Neutral delivery_annoyed>>
 Benji: But I need to keep up. I can't fall behind.
 <<jump DivorcedDad_Questions>>
 ===
 
+
 title: DivorcedDad_Questions
 ---
 -> Why do you feel behind? <<once>>
-    Benji: Because I'm not getting the same amount of sales leads as my peers. And I KNOW it's because I'm not optimized with the same implants as they are. Clients also take you more seriously when you're augmented.
-    <<expression Luna_Neutral arms_neutral>>
-    Benji: More implants means more clients, which means more money.
-    Luna: And that eventually leads to…?
-    <<expression Dad_Neutral delivery_cringe>>
-    Benji: Financial freedom! And the time to finally do whatever I want. Heck, I might even become the CEO of my own company!
-    Benji: AGENTS take 75% of what I make, though…
-    <<expression Dad_Neutral delivery_happy>>
-    Benji: But that's late-stage capitalism, baby. You gotta pay to play!
-    Luna: (He doesn’t need surgery. He’s already delusional.)
-    <<expression Dad_Neutral delivery_cringe>>
-    //Return to the set of the questions in this mode, but remove this question or block it out since the player has already received the answer for this question.
-    <<jump DivorcedDad_Questions>>
+   Benji: Because I'm not getting the same amount of sales leads as my peers. And I KNOW it's because I'm not optimized with the same implants as they are. Clients also take you more seriously when you're augmented.
+   <<expression Luna_Neutral arms_neutral>>
+   Benji: More implants means more clients, which means more money.
+   Luna: And that eventually leads to…?
+   <<expression Dad_Neutral delivery_cringe>>
+   Benji: Financial freedom! And the time to finally do whatever I want. Heck, I might even become the CEO of my own company!
+   Benji: AGENTS take 75% of what I make, though…
+   <<expression Dad_Neutral delivery_happy>>
+   Benji: But that's late-stage capitalism, baby. You gotta pay to play!
+   Luna: (He doesn’t need surgery. He’s already delusional.)
+   <<expression Dad_Neutral delivery_cringe>>
+   //Return to the set of the questions in this mode, but remove this question or block it out since the player has already received the answer for this question.
+   <<jump DivorcedDad_Questions>>
 -> Where did you work in Root Town?
-    <<expression Dad_Neutral delivery_neutral>>
-    Benji: You know the story. A low-paying sales job with grueling work hours.
-    Benji: But once I got this job at AGENTS, everything changed. I got relocated to this swanky tower, free food, and a personal droid that chauffeurs me to and from the office.
-    Benji: It was all just for me, though. The contract didn't include my family. Just 80 hour days, seven days a week. I thought it'd pay off.
-    Benji: Not quick enough, though. Divorce papers were mailed to my apartment within months of starting at AGENTS.
-        -> You would put work before family? Yikes…
-            <<set $badend += 1>>
-             <<expression Dad_Neutral delivery_annoyed>>
-            Benji: You're one to talk. You don't have a wife and kid.
-            Luna: Pretty rude to assume, unc.
-            Benji: It felt like it was worth the cost. But now…
-        -> That sounds kinda unfair to them, tbh.
-            <<set $goodend += 1>>
-            Benji: Well IMO, it felt like it was worth the cost.
-            Benji: It's easy to take the side you haven't heard.
-            Benji: But now…
-        -> And did it feel like the right choice?
-            Benji: At the time, yes. 
-            Benji: But now…
+   <<expression Dad_Neutral delivery_neutral>>
+   Benji: You know the story. A low-paying sales job with grueling work hours.
+   Benji: But once I got this job at AGENTS, everything changed. I got relocated to this swanky tower, free food, and a personal droid that chauffeurs me to and from the office.
+   Benji: It was all just for me, though. The contract didn't include my family. Just 80 hour days, seven days a week. I thought it'd pay off.
+   Benji: Not quick enough, though. Divorce papers were mailed to my apartment within months of starting at AGENTS.
+       -> You would put work before family? Yikes…
+           <<set $badend += 1>>
+            <<expression Dad_Neutral delivery_annoyed>>
+           Benji: You're one to talk. You don't have a wife and kid.
+           Luna: Pretty rude to assume, unc.
+           Benji: It felt like it was worth the cost.
+       -> That sounds kinda unfair to them, tbh.
+           <<set $goodend += 1>>
+           Benji: Well IMO, it felt like it was worth the cost.
+           Benji: It's easy to take the side you haven't heard.
+       -> And did it feel like the right choice?
+           Benji: At the time, yes.
 -> Where do you work now? <<once>>
-    <<expression Dad_Neutral delivery_neutral>>
-    Benji: I work for AGENTS. It'd be weird if I didn't stand by the product I work for, right? It's like a rite of passage.
-    //Return to the set of the questions in this mode, but remove this question or block it out since the player has already received the answer for this question.
-    <<jump DivorcedDad_Questions>>
+   <<expression Dad_Neutral delivery_neutral>>
+   Benji: I work for AGENTS. It'd be weird if I didn't stand by the product I work for, right? It's like…a rite of passage…
+   //Return to the set of the questions in this mode, but remove this question or block it out since the player has already received the answer for this question.
+   <<jump DivorcedDad_Questions>>
 
-Luna: <i>I hear his voice crack, then taper off into the dead air between us.</i>
+Benji: But now…
 <<jump HelpBenji>>
 ===
+
+
 
 
 title: HelpBenji
 ---
 <<declare $timetime = 0>>
 <<expression Dad_Neutral delivery_neutral>>
-Benji: Everything I'm doing now…it was to spend more time with them.
+Benji: Everything I've been doing…it was to spend more time with them.
 Benji: You wouldn't understand…
 
 -> If that's what you wanna believe.
-    Luna: Everyone makes choices. You just made yours.
-    Benji: Yeah…
-    Luna: <i>He seems satisfied with my answer, but I still hear doubt in his voice.</i>
-    Luna: (Look at me, talking about choices with an ultra-rich sellout. Like I'm one to talk…)
+   Luna: Everyone makes choices. You just made yours.
+   Benji: Yeah…
+   Luna: (Look at me, talking about choices with an ultra-rich sellout. Like I'm one to talk…)
 -> Hope your kid is proud of you for selling your soul.
-    <<set $badend += 1>>
-    <<expression Dad_Neutral delivery_annoyed>>
-    <<expression CompanionNubs arms_worried>>
-    Benji: Screw you! I hope you rot like the rest of Root Town.
-    Nubs: I'm not sure that was a good idea…
-    Luna: Whatever. The last thing Root Town needs is a traitor and a sellout.
-    // Motorcycle SFX sound
-    <<playSFX lunaMotorcycle>>
-    Luna: <i>I rev my bike's engine and ride off with Nubs.</i>
-    <<pose Luna_Neutral SceneSample_LunaFadeOut>>
-    <<pose CompanionNubs CompanionNubsFadeOut>>
-    <<pose Dad_Neutral DadFadeOut>>
-    <<wait 1>>
-    <<exit Luna_Neutral>>
-    <<exit CompanionNubs>>
-    <<exit Dad_Neutral>>
-    <<fadeOut 2>>
-    <<camera BlackImage>>
-    <<fadeIn 1>>
-    //I imagine a black screen and the dialogue box
-    Luna: <i>20 minutes later, I get a negative rating on the SL0P app and a violation as the cherry on top. It said the food looked like it'd been tampered with.</i>
-    Luna: <i>Thanks, Nubs…</i>
-    Luna: <i>But who cares? A person who lives in that building and sells his soul to AGENTS is clearly rich enough to get more food…</i>
-    <<fadeOut 1>>
-    <<stopMusic>>
-    <<jump Bad_Outcome>>
+   <<set $badend += 1>>
+   <<expression Dad_Neutral delivery_annoyed>>
+   <<expression CompanionNubs arms_worried>>
+   Benji: Screw you! I hope you rot like the rest of Root Town.
+   Nubs: I'm not sure that was a good idea…
+   Luna: Whatever. The last thing Root Town needs is a sellout.
+   // Motorcycle SFX sound
+   <<playSFX lunaMotorcycle>>
+   Luna: <i>I rev my bike's engine and ride off with Nubs.</i>
+   <<pose Luna_Neutral SceneSample_LunaFadeOut>>
+   <<pose CompanionNubs CompanionNubsFadeOut>>
+   <<pose Dad_Neutral DadFadeOut>>
+   <<wait 1>>
+   <<exit Luna_Neutral>>
+   <<exit CompanionNubs>>
+   <<exit Dad_Neutral>>
+   <<fadeOut 2>>
+   <<camera BlackImage>>
+   <<fadeIn 1>>
+   //I imagine a black screen and the dialogue box
+   Luna: <i>20 minutes later, I get a negative rating on the SL0P app and a violation as the cherry on top. It said the food looked like it'd been tampered with.</i>
+   Luna: <i>Thanks, Nubs…</i>
+   Luna: <i>But who cares? A person who lives in that building and sells his soul to AGENTS is clearly rich enough to get more food…</i>
+   <<fadeOut 1>>
+   <<stopMusic>>
+   <<jump Bad_Outcome>>
 -> You're never gonna get back that time, though.
-    <<set $goodend += 1>>
-    <<set $timetime = 1>>
-    <<expression Luna_Neutral shy_neutral>>
-    <<expression CompanionNubs neutral>>
-    Luna: You've probably missed out on school performances, birthdays, maybe even a graduation. And all the small wins in between.
-    Benji: …
-    <<expression Luna_Neutral arms_neutral>>
-    Luna: But that doesn't mean you can't take back time now. That's a choice.
-    Nubs: Luna…
-    Benji: And life is full of choices…
-    <<expression Dad_Neutral delivery_happy>>
-    Benji: Dang, you're one wise delivery driver! Have you ever considered becoming a life coach?
-    <<expression Luna_Neutral shy_neutral>>
-    Luna: I'd probably make millions if it was this easy.
-    Luna: (But it's true. This gig job is a choice…and it might not be too late to change it up.)
-    <<expression Dad_Neutral delivery_neutral>>
-    Benji: I'm gonna call my ex-wife tonight. Hear my daughter's voice. It's time to start making up for all that lost time.
+   <<set $goodend += 1>>
+   <<set $timetime = 1>>
+   <<expression Luna_Neutral shy_neutral>>
+   <<expression CompanionNubs neutral>>
+   Luna: You've probably missed out on a lot of stuff.
+   Benji: …
+   <<expression Luna_Neutral arms_neutral>>
+   Luna: But that doesn't mean you can't take back time now. That's a choice.
+   Nubs: Luna…
+   <<expression Dad_Neutral delivery_happy>>
+   Benji: Dang, you're one wise delivery driver! Have you ever considered becoming a life coach?
+   <<expression Luna_Neutral shy_neutral>>
+   Luna: I'd probably make millions if it was this easy.
+   <<expression Dad_Neutral delivery_neutral>>
+   Benji: I'm gonna call them tonight. Hear my daughter's voice. And start making up for all that lost time.
+
 
 Benji: Thanks for listening to an old, uncool guy.
-Nubs: …
+Nubs: You are welcome.
 <<expression Dad_Neutral delivery_happy>>
 <<expression Luna_Neutral surprised>>
-Benji: Oh! Is that a talking cyberpet?
+Benji: Oh! Is that a talking cyberpet?!
 <<expression CompanionNubs wave_angry>>
-Nubs: I am not a pet! I am a super secret weap—!
+Nubs: I am not a pet!
+<<expression Luna_Neutral arms_delivery_dropped>>
+Nubs: I am a super secret weap—!
 <<expression Luna_Neutral shy_happy>>
-Luna: Y-Yeah, he’s a pet! Did you know they're gonna let pets speak 25 different languages soon?
+Luna: Yeah, he’s a pet! Did you know they're gonna let cyberpets speak 25 different languages soon?
 Nubs: Hey! That's proprietary information!
 <<expression Dad_Neutral delivery_neutral>>
 Benji: Where have I heard that before? Was it in an internal post at AGENTS…?
 Luna: G-Gotta go!
 // Motorcycle SFX sound
 <<playSFX lunaMotorcycle>>
-Luna: <i>I scoop up Nubs, dump him onto my motorbike, and ride off into the night.</i>
 <<pose Luna_Neutral SceneSample_LunaFadeOut>>
 <<pose CompanionNubs CompanionNubsFadeOut>>
 <<pose Dad_Neutral DadFadeOut>>
@@ -303,29 +304,28 @@ Luna: <i>The shadow of Root Town lingers in the distance across the ocean.</i>
 ////////////////////// Show new phone message opportunities by showing the new notification status on the cyberdeck’s NATIO 3000 logo
 // If player chose You’re never gonna get back that time, then also show the below:
 <<if $timetime == 1>>
-    <<expression Luna_Neutral shy>>
-    Luna: (A life coach, huh? Kaya would laugh. She's better at that touchy-feely stuff.)
-    Nubs: So this is the Gen Z stare…
-    <<expression Luna_Neutral arms_neutral>>
-    Luna: Stop saying that. It’s like, SO old.
-    Luna: He's probably from that generation.
-    <<expression Nubs arms_happy>>
-    Nubs: Yeah. Like, HELLA old.
-    Luna: Ugh, stop being cringe. Remove that from your memory. Or hardware, or…whatever it's called!
-    <<expression Nubs loading>>
-    Luna: <i>Beeping noises echo from Nubs's miniature metal body.</i>
-    Nubs: Got it. I'll archive “hella” “cringe,” and “Gen Z stare” into my database and categorize them by history and by social settings.
-    <<expression Luna_Neutral arms_annoyed>>
-    Luna: We need to program something in you that actually LISTENS to me…
-    <<expression Luna_Neutral arms_neutral>>
+   <<expression Luna_Neutral shy>>
+   Luna: (A life coach, huh? Kaya would laugh. She's better at that touchy-feely stuff.)
+   Nubs: So this is the Gen Z stare…
+   <<expression Luna_Neutral arms_neutral>>
+   Luna: Stop saying that. It’s like, SO old.
+   Luna: He's probably from that generation.
+   <<expression Nubs arms_happy>>
+   Nubs: Yeah. Like, HELLA old.
+   Luna: Ugh, stop being cringe. Remove that from your memory. Or hardware, or…whatever it's called!
+   <<expression Nubs loading>>
+   Nubs: Got it. I'll archive “hella” “cringe,” and “Gen Z stare” into my database and categorize them by history and by social settings.
+   <<expression Luna_Neutral arms_annoyed>>
+   Luna: We need to program something in you that actually LISTENS to me…
+   <<expression Luna_Neutral arms_neutral>>
 <<endif>>
 // Continue with the below text. If player didn’t choose You’re never gonna get back that time, then just show the below:
-Luna: <i>I notice Nubs is lost in thought.</i>
+Nubs: …
 Luna: What's wrong?
 Nubs: I am thinking about what Benji said. About the time he lost because of his job at AGENTS. My emotions radar picked up feelings of sadness and loneliness.
 Nubs: I can only infer that this sadness is caused by AGENTS.
 <<expression Luna_Neutral arms_neutral>>
-Luna: AGENTS is bad.
+Luna: AGENTS <i>is</i> bad.
 Nubs: But why is AGENTS bad? Our mission is to help humankind advance towards a new evolutional frontier. Benji was in the process of doing that.
 Luna: But he was doing it for himself—and ONLY himself. Your company's little “mission statement” is a complete lie. AGENTS doesn't help, it only harms.
 Luna: You heard it from Benji. AGENTS gave him money and clout, but it shattered his family life into bits.
@@ -341,7 +341,6 @@ Luna: I'm an example of that.
 <<expression Nubs arms_worried>>
 Nubs: …
 <<expression Luna_Neutral arms_neutral>>
-Luna: <i>I'm clearly bumming the little guy out.</i>
 Luna: Obviously you can tell I hate it. But…
 <<expression Luna_Neutral shy_neutral>>
 Luna: Meeting Benji got me thinking. Maybe I've been judging everyone who lives here a little too quickly.
@@ -353,11 +352,10 @@ Nubs: Luna…
 Nubs: You're hella cool right now!
 <<expression Luna_Neutral shy>>
 Luna: S-Shut up! I still hate AGENTS. And what your master does.
-Luna: <i>Nubs giggles. It sounds like a series of high-pitched chirps.</i>
-Luna: It's actually pretty cute.</i>
 <<jump LilGuy_Respite>>
 // You can find this node in the Climax.yarn tab
 ===
+
 
 title: Influencer
 ---
@@ -384,30 +382,33 @@ Luna: <i>Then I wait.</i>
 <<expression Luna_Neutral arms_delivery_annoyed>>
 Luna: <i>…And wait.</i>
 
+
 // ---------- THE OPTIONS ----------
 
+
 -> Continue to wait
-    <<expression CompanionNubs angry>>
-    Nubs: How long do you intend to dally at the door?!
+   <<expression CompanionNubs angry>>
+   Nubs: How long do you intend to dally at the door?!
 -> Press the button again
-    <<set $goodend += 1>>
-    <<expression Luna_Neutral arms_delivery_annoyed>>
-    Luna: I don't have all day, diva.
-    <<expression Luna_Neutral arms_delivery_surprise>>
-    Nubs: Ah. So the owners of this abode are female versions of a hustler?
-    Luna: W-What?! No. Where are you even-? Ugh. Nevermind.
-    <<expression CompanionNubs angry>>
-    <<expression Luna_Neutral arms_delivery_annoyed>>
-    Luna: <i>I press the button again on the glass interface. Time's ticking, and I can feel the little creature's beady little eyes on my back. I know what I promised him.</i>
-    Nubs: How long do you intend to dally at the door?!
+   <<set $goodend += 1>>
+   <<expression Luna_Neutral arms_delivery_annoyed>>
+   Luna: I don't have all day, diva.
+   <<expression Luna_Neutral arms_delivery_surprise>>
+   Nubs: Ah. So the owners of this abode are female versions of a hustler?
+   Luna: W-What?! No. Where are you even-? Ugh. Nevermind.
+   <<expression CompanionNubs angry>>
+   <<expression Luna_Neutral arms_delivery_annoyed>>
+   Nubs: How long do you intend to dally at the door?!
 -> Take a photo of the order and leave
-    <<set $badend += 1>>
-    <<set $leavesEarly = true>>
-    <<expression Luna_Neutral annoyed>>
-    Luna: I don't have time for this.
-    Luna: <i>I snap a photo on the SL0P app to prove that I left the order at the correct location. I make sure to capture the apartment's number.</i>
+   <<set $badend += 1>>
+   <<set $leavesEarly = true>>
+   <<expression Luna_Neutral annoyed>>
+   Luna: I don't have time for this.
+   Luna: <i>I snap a photo on the SL0P app to prove that I left the order at the correct location.</i>
+
 
 // ---------- THE SPILL: runs once, whichever option was picked ----------
+
 
 <<expression CompanionNubs wave_worried>>
 <<expression Luna_Neutral arms_delivery_dropped>>
@@ -415,7 +416,7 @@ Luna: <i>…And wait.</i>
 <<wait .9>>
 <<playSFX dropBag>>
 Nubs: Ah!
-Luna: <i>His arms knock the bag out of my hand and it falls to the floor. Green slush oozes out from the bag and stains a very expensive-looking doormat.</i>
+Luna: <i>Green slush oozes out from the bag and stains a very expensive-looking doormat.</i>
 <<expression Luna_Neutral annoyed>>
 Luna: Shit.
 Luna: <i>I try to blot the mess away with a wad of napkins I found hidden in one of the other bags. Now it looks worse, like a muddy mess.</i>
@@ -423,25 +424,30 @@ Luna: <i>I try to blot the mess away with a wad of napkins I found hidden in one
 Nubs: Oops.
 Luna: …
 
+
 // ---------- THE SPLIT ----------
 
+
 <<if $leavesEarly>>
-    <<jump Influencer_LeaveEarly>>
+   <<jump Influencer_LeaveEarly>>
 <<endif>>
+
 
 <<expression Luna_Neutral annoyed>>
 <<expression CompanionNubs arms_neutral>>
-Luna: <i>The door clicks open.</i>
+<<wait .5>>
 <<playSFX doorClick>>
 <<jump Influencer_Continued>>
 ===
 
 
+
+
 // ---------- NEW NODE: the old ending of option three ----------
+
 
 title: Influencer_LeaveEarly
 ---
-Luna: <i>Nubs stands and watches as I try to clean up his mess. He obviously wants to say something, but I don't let him.</i>
 Luna: Let's just get out of here.
 <<pose Luna_Neutral SceneSample_LunaFadeOut>>
 <<pose CompanionNubs CompanionNubsFadeOut>>
@@ -460,254 +466,261 @@ Luna: <i>But who cares? A person who lives in this building is rich enough to bu
 ===
 
 
+
+
 title: Influencer_Continued
 ---
 <<camera PenthouseOpen>>
 <<wait 1>>
 <<place Influencer>>
 <<expression Influencer neutral>>
-Luna: <i>A woman with impeccable hair stands in the doorway. I notice a bead wedged in between her eyes and realize it’s an AGENTS implant.</i>
+Luna: (Is that bead on her forehead…an AGENTS implant?)
 <<expression Influencer happy>>
-???_Queenie: Heyo, fam! My catering order from SL0P just arrived. Powered by AGENTS, of course! I always try to shop local and support real human labor in our economy~!
-Luna: Her followers get to see the bags—and the stain on her doormat—before she does.
+???_Queenie: Heyo, fam! My catering order from SL0P just arrived. Powered by AGENTS, of course! I always try to shop local and support real human labor in our community—
+Luna: <i>She spots the stain on her doormat—and so do her followers.</i>
 <<expression Influencer annoyed>>
 ???_Queenie: ...
 <<set $badend += 1>>
 <<expression Luna_Neutral arms_neutral>>
-Luna: (I feel like I've seen her before. But where…)
+Luna: (I can’t afford another bad rating on the SL0P app.)
+
 
 -> Ask if she's been in an ad before
-    <<set $goodend += 1>>
-    <<expression Influencer happy>>
-    ???_Queenie: Are you talking about my downtown billboard in the Beauty District? Or maybe my limited-edition cosmetic line in collaboration with Mr. Suckerberg 2.0?
-    Luna: <i>She moves her cyberphone so that I'm viewable to her live audience, which makes me freeze in place.</i>
-    <<expression Luna_Neutral arms_annoyed>>
-    ???_Queenie: Look, everyone! My delivery gal is a Queenie fan! Part of the royal fam.
-    Luna: (“Fan?” Hell no. I didn't ask to be on someone's livestream…)
+   <<set $goodend += 1>>
+   <<expression Influencer happy>>
+   ???_Queenie: Are you talking about my downtown billboard in the Beauty District? Or maybe my limited-edition cosmetic line in collaboration with Mr. Suckerberg 2.0?
+   <<expression Luna_Neutral arms_annoyed>>
+   ???_Queenie: Look, everyone! My delivery gal is a Queenie fan! Part of the royal fam.
+   Luna: (“Fan?” Hell no. I didn't ask to be on someone's livestream…)
 -> Ask for her name, using the delivery as an excuse
-    <<expression Influencer happy>>
-    ???_Queenie: It’s Queenie! Ohmigods, you’ve never heard of me before!?
-    Luna: <i>She moves her cyberphone so that I'm viewable to her audience, which makes me freeze in place.</i>
-    <<expression Luna_Neutral arms_annoyed>>
-    Queenie: Can you believe this, my royal fam? My delivery girl doesn't know who I am!
-    Luna: (I'm not getting paid to be on someone's livestream…)
+   <<expression Influencer happy>>
+   ???_Queenie: It’s Queenie! Ohmigods, you’ve never heard of me before!?
+   <<expression Luna_Neutral arms_annoyed>>
+   Queenie: Can you believe this, my royal fam? My delivery girl doesn't know who I am!
+   Luna: (I'm not getting paid to be on someone's livestream…)
 -> Just take a photo and leave
-    <<set $badend += 1>>
-    <<expression Influencer annoyed>> 
-    ???_Queenie: Hey! No photos!
-    Luna: It’s a photo of the FOOD, not you. If I don't take one, I get fired.
-    <<expression Luna_Neutral arms_neutral>>
-    Luna: Or do you not support “human labor”?
-    ???_Queenie: Rrrgh!
-    Luna: <i>I hear notifications and reaction noises ping from the woman's phone. Before I can give her followers more tea, I turn around and make my way back down to the lobby.</i>
-    <<expression CompanionNubs arms_worried>>
-    Nubs: I'm not sure that was a good idea…
-    Luna: Let's just get out of here.
-    <<pose Luna_Neutral SceneSample_LunaFadeOut>>
-    <<pose CompanionNubs CompanionNubsFadeOut>>
-    <<pose Influencer InfluencerFadeOut>>
-    <<wait 1>>
-    <<exit Luna_Neutral>>
-    <<exit CompanionNubs>>
-    <<exit Influencer>>
-    <<fadeOut 2>>
-    <<camera BlackImage>>
-    <<fadeIn 1>>
-    <<wait 1>>
-    Luna: <i>20 minutes later, I get a negative rating on the SL0P app AND a violation as the cherry on top. It notes the doormat stain as damaged property.</i>
-    Luna: <i>But who cares? A person who lives in that building is rich enough to buy anything without blinking an augmented eye…</i>
-    <<fadeOut 1>>
-    <<stopMusic>>
-    <<jump Bad_Outcome>>
+   <<set $badend += 1>>
+   <<expression Influencer annoyed>>
+   ???_Queenie: Hey! No photos!
+   Luna: It’s a photo of the FOOD, not you. If I don't take one, I get fired.
+   <<expression Luna_Neutral arms_neutral>>
+   Luna: Or do you not support “human labor”?
+   ???_Queenie: Rrrgh!
+   Luna: <i>I hear notifications and reaction noises ping from the woman's phone.</i>
+   <<expression CompanionNubs arms_worried>>
+   Nubs: I'm not sure that was a good idea…
+   Luna: Let's just get out of here.
+   <<pose Luna_Neutral SceneSample_LunaFadeOut>>
+   <<pose CompanionNubs CompanionNubsFadeOut>>
+   <<pose Influencer InfluencerFadeOut>>
+   <<wait 1>>
+   <<exit Luna_Neutral>>
+   <<exit CompanionNubs>>
+   <<exit Influencer>>
+   <<fadeOut 2>>
+   <<camera BlackImage>>
+   <<fadeIn 1>>
+   <<wait 1>>
+   Luna: <i>20 minutes later, I get a negative rating on the SL0P app AND a violation as the cherry on top. It notes the doormat stain as damaged property.</i>
+   Luna: <i>But who cares? A person who lives in that building is rich enough to buy anything without blinking an augmented eye…</i>
+   <<fadeOut 1>>
+   <<stopMusic>>
+   <<jump Bad_Outcome>>
+
 
 <<expression CompanionNubs loading>>
 Nubs: Queenie. Beauty influencer. 800 million followers. Blood type O. Leo rising. Use discount code ROYALGUARD for 33% off your first AGENTS implant! Terms apply.
-Luna: <i>And then, it hits me.</i>
 Luna: (Wait, THIS is the influencer Kaya raves about?!)
 <<expression Influencer happy>>
 Queenie: Ohmigods, fam! Look at this cute cyberpet!
 <<expression CompanionNubs angry>>
-<<expression Luna_Neutral surprised>> 
-Luna: (Shit! I can't have her livestream a damn war machine to millions of people!)
-<<expression Luna_Neutral shy_annoyed>> 
+<<expression Luna_Neutral arms_delivery_dropped>>
+Luna: (Shit! I can't have her livestream a WAR MACHINE to millions of people!)
+<<expression Luna_Neutral annoyed>>
+Luna: N-No cameras! He's…he's got a location tracker on him! 
+<<expression Luna_Neutral arms_annoyed>>
+Luna: So everyone will know where you live!
 <<expression CompanionNubs loading>>
-Luna: N-No cameras! He's…he's got a location tracker on him! So everyone will know where you live!
 Nubs: I do. I can begin broadcasting our coordinates right now…
 <<expression Influencer annoyed>>
-Queenie: What the-?! 
+Queenie: What the-?!
 Luna: Turn it off!
-Queenie: Okay, okay! Geez. 
+Queenie: Okay, okay! Geez.
 <<expression Influencer happy>>
 Queenie: Signing off for a bit fam! Be back soon~
-Luna: <i>She blows a kiss to her followers and ends the stream.</i>
 <<expression Influencer neutral>>
 <<expression CompanionNubs neutral>>
 Queenie: That was close. I can't let my crazy fans know where I live.
-Queenie: And I can't have another girl from Root Town rat me out.
-<<expression Luna_Neutral arms_neutral>> 
-Luna: Rat you out?
-Luna: <i>I try to remember why Kaya likes Queenie so much.</i>
-Queenie: Can you finish up and go? My followers need me.
+<<expression Influencer annoyed>>
+Queenie: And I can't have someone from Root Town rat me out.
+<<expression Luna_Neutral arms_neutral>>
+Luna: Rat you out? And why the hate on Root Town?
+Queenie: Can you just finish up and go? My followers need me.
 <<jump Queenie_Questions>>
 ===
+
 
 title: Queenie_Questions
 ---
 -> Could I get a selfie? <<once>>
-    <<expression Influencer annoyed>>
-    <<expression CompanionNubs worried>>
-    Luna: <i>The frown says it all. “No.”</i>
-    //Return back to the set of questions in this node, but remove this question since the player completed it.
-    <<expression Influencer neutral>>
-    <<expression CompanionNubs neutral>>
-    <<jump Queenie_Questions>>
--> Aren't you also from Root Town?
-    Queenie: Yeah. So? Are you here to cancel me?
-    -> Why would I cancel you?
-        <<set $goodend += 1>>
-        Luna: I don't even know you. Well, my friend does. But why would I cancel someone I barely know?
-        Luna: (Even if she makes it pretty easy to hate her…)
-        Queenie: True. I guess I'm just a little paranoid.
-    -> (Jokingly) I'll write a post about how awful you were IRL
-        <<expression Luna_Neutral happy>> 
-        <<expression Influencer happy>>
-        <<expression CompanionNubs arms_neutral>> 
-        Queenie: You wouldn't.
-        Luna: I've seen my fair share of bad reviews. Got some sick disses archived.
-        Queenie: I can only imagine the crazy shit you get dinged for.
-        <<expression Luna_Neutral arms_neutral>>
-        Luna: (And she wouldn't? I just messed up her doormat.)
-        <<expression Influencer neutral>>
-    -> Give me some baecoins and I won't do it.
-        <<set $badend += 1>>
-        <<expression Influencer annoyed>> 
-        <<expression CompanionNubs worried>> 
-        Queenie: Stop giving Root Town a bad rep like that.
-        <<expression CompanionNubs neutral>>
-        <<expression Influencer neutral>>
+   <<expression Influencer annoyed>>
+   <<expression CompanionNubs worried>>
+   Luna: (The face says it all.)
+   //Return back to the set of questions in this node, but remove this question since the player completed it.
+   <<expression Influencer neutral>>
+   <<expression CompanionNubs neutral>>
+   <<jump Queenie_Questions>>
+-> Are you from Root Town?
+   Queenie: Yeah. So? Are you here to cancel me?
+   -> Why would I cancel you?
+       <<set $goodend += 1>>
+       Luna: I don't even know you. Well, my friend does. But why would I cancel someone I barely know?
+       Luna: (Though she <i>is</i> pretty easy to hate…)
+       Queenie: True. I guess I'm just a little paranoid.
+   -> (Jokingly) I'll write a post about how awful you were IRL
+       <<expression Luna_Neutral happy>>
+       <<expression Influencer happy>>
+       <<expression CompanionNubs arms_neutral>>
+       Queenie: You wouldn't.
+       Luna: I've seen my fair share of bad reviews. Got some sick disses archived.
+       Queenie: I can only imagine the crazy stuff you get dinged for.
+       <<expression Luna_Neutral arms_neutral>>
+       Luna: (Hopefully the doormat won’t be one of them.)
+       <<expression Influencer neutral>>
+   -> Give me some baecoins and I won't do it.
+       <<set $badend += 1>>
+       <<expression Influencer annoyed>>
+       <<expression CompanionNubs worried>>
+       Queenie: Ugh. Typical.
+       <<expression CompanionNubs neutral>>
+       <<expression Influencer neutral>>
 
-Queenie: I'm used to the hate I get from Root Town. They call me a sellout.
-Queenie: Because I'm from there and got famous for reviewing beauty products. Then chameleoned my way into Frisscity. I started promoting AGENTS makeup more and more.
-Queenie: The next step was to become a walking ad for AGENTS implants. They made it easy for me, too. But my life isn't as glamorous as it looks.
+
+Queenie: I'm used to Root Town’s hate.
+Queenie: Because I got famous for reviewing beauty products. Because I moved to Frisscity. Then got AGENTS implants.
 <<expression CompanionNubs arms_worried>>
 <<expression Influencer annoyed>>
-Queenie: I'm forced to keep subscriptions so that my implant stays on the latest model, or else it’ll corrode my skin. AGENTS also keeps 70% of my sales revenue.
+Queenie: YOU try living with the fear of your skin corroding unless you keep paying for your AGENTS subscription.
 Nubs: …
-Queenie: Now all I do is force discount codes for implant surgeries down everyone's throats. Surgeries I KNOW they can't afford.
-Queenie: I want to give back, to actually make a difference. Maybe I’m really just a sellout…
+Queenie: Wanna try forcing AGENTS discount codes down people’s throats all day, just to collect your 30% paycheck?
+Queenie: Maybe I really am a sellout…
 <<jump Queenie_Ideas>>
 ===
+
 
 title: Queenie_Ideas
 ---
 <<declare $sample = 0>>
 <<expression Luna_Neutral neutral>>
 
+
 -> Instead of selling AGENTS, find another way to help the Town.
-    <<set $goodend += 1>>
-    <<expression Influencer neutral>>
-    Queenie: Like what?
-    <<expression Luna_Neutral arms_neutral>>
-    <<expression CompanionNubs arms_neutral>>
-    Luna: Like…don't gatekeep what comes after, about the costs and subscriptions. Be real with them, like how you're being real with me.
-    Luna: Or, use your money to give back to Root Town.
-    Queenie: Like for schools?
-    Luna: Yeah. Or for infrastructure. Or food banks. We’ll take anything at this point. But school is a start.
-    Queenie: Maybe like…beauty school?
-    <<expression Luna_Neutral shy_neutral>>
-    Luna: Yeah! What's the one you went to?
-    Queenie: The one down by Lake M.
-    <<expression Luna_Neutral shy_happy>>
-    <<expression Influencer happy>>
-    Luna: Did you ever try Chester's Crazy Cheesecakes before he got shut down?
-    Queenie: Girl, my school was right next to his shop.
-    <<expression CompanionNubs arms_happy>>
-    Luna: <i>We both find ourselves laughing, sharing a piece of Root Town history that only locals could know.</i>
-    Queenie: God, I miss Root Town. This riffing sesh really helped me remember why I love it.
-    Luna: Yeah, well. Dreaming is all we CAN do at this point.
-    Queenie: Maybe, maybe not. You're the driver of your own life.
-    <<expression Luna_Neutral shy_neutral>>
-    Luna: …
-    Queenie: Don’t worry, I won't get philosophical. You've given me enough to think about.
-    <<expression Luna_Neutral arms_neutral>>
-    Luna: Pay me in royalties for the idea. Or an extra tip.
-    Queenie: How about a beauty sample, too? A SIGNED beauty sample?
-    <<expression CompanionNubs arms_neutral>>
-    Luna: Honestly, just the tip is—
-    <<expression Luna_Neutral arms_surprised>>
-    Luna: (Wait. I know someone who'd want something like that—and who could possibly knock some off my rent if I gave her this!)
-    <<expression Luna_Neutral arms_happy>>
-    <<expression CompanionNubs arms_happy>>
-    Luna: Actually yeah, I'll take it. Could you address it to “Kaya?” That's K-A-Y-A.
-    <<set $sample = 1>>
-    ///////////////Show the item asset: beauty sample addressed to Kaya
-    Queenie: Done.
-    <<place BeautySample>>
-    Luna: <i>I take the beauty product from her porcelain hands and slip it into my back pocket.</i>
-      <<exit BeautySample>>
-    Queenie: So now I know Kaya. But who is my hella mysterious and wise midnight delivery girl?
-    Luna: It's Luna.
-    <<expression CompanionNubs arms_happy>>
-    Queenie: Okay, Luna. And her cute little sidekick that can track locations.
-    Nubs: I can do a lot more for people who have AGENTS implants. Like–
-    <<expression Luna_Neutral surprised>>
-    Luna: D-Don't mind him! I installed a new microchip that allows him to talk. It's still a little buggy.
-    <<expression CompanionNubs angry>>
-    Nubs: I'm not buggy! I've been cleared of 31 SEVs and over 2,000 coding errors!
-    <<expression Luna_Neutral happy>>
-    Luna: V-Vaccinations! Sooo many vaccinations. Pets are so expensive, y'know?
-    <<expression CompanionNubs wave_angry>>
-    Nubs: I. AM NOT. A PET!!
-    Luna: <i>I laugh it off as I quickly shuffle me and my alien away from Queenie's door so she doesn't get any ideas. I also make sure to take a picture of the delivery so SL0P doesn't ding me for it.</i>
+   <<set $goodend += 1>>
+   <<expression Influencer neutral>>
+   Queenie: Like what?
+   <<expression Luna_Neutral arms_neutral>>
+   <<expression CompanionNubs arms_neutral>>
+   Luna: Like…tell the truth? Be real with them, like how you're being real with me.
+   Queenie: Unfortunately, being ‘real’ is against my contract…
+   Luna: Then make up some codewords. I dunno. Something only Root Town will know. 
+   Queenie: Like…hyphy?
+   <<expression Luna_Neutral happy>>
+   <<expression Influencer annoyed>>
+   Luna: Damn, you HAVE been gone.
+   Queenie: Oh yeah? Bet you didn’t know about Junie’s.
+   <<expression Luna_Neutral shy_happy>>
+   <<expression Influencer happy>>
+   Luna: The one by Lake M? Dude, they got shut down YEARS ago.
+   Queenie: Well, they had the best pizza.
+   <<expression CompanionNubs arms_happy>>
+   Luna: It WAS pretty elite…
+   Queenie: God, I miss Root Town.
+   <<expression Luna_Neutral shy_neutral>>
+   Luna: …
+   Queenie: Chill, I’m not gonna get sappy on you. But I owe you.
+   <<expression Luna_Neutral arms_neutral>>
+   Luna: Pay me in royalties for the idea. Or an extra tip.
+   Queenie: How about a beauty sample, too? A SIGNED beauty sample?
+   <<expression CompanionNubs arms_neutral>>
+   Luna: Honestly, just the tip is—
+   <<expression Luna_Neutral arms_surprised>>
+   Luna: (Wait. I know someone who'd want something like that—and who could possibly knock some off my rent if I gave her this!)
+   <<expression Luna_Neutral arms_happy>>
+   <<expression CompanionNubs arms_happy>>
+   Luna: Actually yeah, I'll take it. Could you address it to “Kaya?” That's K-A-Y-A.
+   <<set $sample = 1>>
+   ///////////////Show the item asset: beauty sample addressed to Kaya
+   Queenie: Done.
+   <<place BeautySample>>
+   Luna: <i>I take the beauty product from her porcelain hands and slip it into my back pocket.</i>
+     <<exit BeautySample>>
+   Queenie: So now I know Kaya. But who is my hella mysterious and wise midnight delivery girl?
+   Luna: It's Luna.
+   <<expression CompanionNubs arms_happy>>
+   Queenie: Okay, Luna. And her cute little sidekick that can track locations.
+   <<expression Luna_Neutral surprised>>
+   Nubs: I can do a lot more for people who have AGENTS implants.
+   <<expression Luna_Neutral arms_delivery_dropped>>
+   Nubs: Like–
+   <<expression Luna_Neutral happy>>
+   Luna: D-Don't mind him! I…installed a new microchip that allows him to talk! It's still a little buggy.
+   <<expression CompanionNubs angry>>
+   Nubs: I'm not buggy! I've been cleared of 31 SEVs and over 2,000 coding errors!
+   Luna: Vaccinations! Sooo many vaccinations. Pets are so expensive, y'know?
+   <<expression CompanionNubs wave_angry>>
+   Nubs: I. AM NOT. A PET!!
 -> Just keep doing you. You need to give people time.
-    <<set $goodend += 1>>
-    <<expression Luna_Neutral arms_neutral>>
-    Luna: People will come around. You said so yourself, you're from Root Town. So stay rooted.
-    Luna: Maybe you've changed people's lives. Have those people talk about how much you helped them. You can't fake that.
-    <<expression CompanionNubs arms_neutral>>
-    Nubs: Luna…
-    Queenie: That's not a bad idea. Especially from someone who hates AGENTS.
-    <<expression Influencer happy>>
-    Queenie: Thanks, my hella mysterious and wise midnight delivery girl! And her cute little sidekick who can track locations.
-    <<expression CompanionNubs arms_happy>>
-    Nubs: I can do a lot more for people who have AGENTS implants. Like-
-    <<expression Luna_Neutral surprised>>
-    Luna: D-Don't mind him! I installed a new microchip that allows him to talk. It's still a little buggy.
-    <<expression CompanionNubs angry>>
-    Nubs: I'm not buggy! I've been cleared of 31 SEVs and over 2,000 coding errors!
-    <<expression Luna_Neutral happy>>
-    Luna: V-Vaccinations! Sooo many vaccinations. Pets are so expensive, y'know?
-    <<expression CompanionNubs wave_angry>>
-    Nubs: I. AM NOT. A PET!!
-    Luna: <i>I laugh it off as I quickly shuffle me and my alien sidekick away from Queenie's door so she doesn't get any ideas. I also make sure to take a picture of the delivery so SL0P doesn't ding me for it.</i>
+   <<set $goodend += 1>>
+   <<expression Luna_Neutral arms_neutral>>
+   Luna: People will come around. You said so yourself, you're from Root Town. So stay rooted.
+   Luna: Have people come talk about how much you helped them. You can't fake that.
+   <<expression CompanionNubs arms_neutral>>
+   Nubs: Luna…
+   Queenie: That's not a bad idea.
+   <<expression Luna_Neutral arms_annoyed>>
+   Queenie: Especially from someone who hates AGENTS.
+   <<expression Influencer happy>>
+   Queenie: But thanks, my hella mysterious and wise midnight delivery girl! And…her cute little sidekick who can track locations.
+   <<expression CompanionNubs arms_happy>>
+   <<expression Luna_Neutral arms_surprised>>
+   Nubs: Oh, I can do a lot more for people who have AGENTS implants! 
+   <<expression Luna_Neutral arms_delivery_dropped>>
+   Nubs: Like-
+   <<expression Luna_Neutral happy>>
+   Luna: D-Don't mind him! I installed a new microchip that allows him to talk. It's still a little buggy.
+   <<expression CompanionNubs angry>>
+   Nubs: I'm not buggy! I've been cleared of 31 SEVs and over 2,000 coding errors!
+   Luna: Vaccinations! Sooo many vaccinations. Pets are so expensive, y'know?
+   <<expression CompanionNubs wave_angry>>
+   Nubs: I. AM NOT. A PET!!
 -> Internet trolls are a small price to pay for your flex city life.
-    <<set $badend += 1>>
-    <<expression Influencer annoyed>>
-    Queenie: Wow, you don’t have to be a bitch about it! 
-    <<expression Luna_Neutral arms_annoyed>>     
-    Luna: You live in a penthouse suite where everything's delivered to your door. And you STILL can't take cancel culture? It's giving privileged sob story.
-    Queenie: Get out of my face. We're done.
-    <<pose Influencer InfluencerFadeOut>>
-    <<wait 1>>
-    <<exit Influencer>>
-    <<camera PenthouseClosed>>
-    Luna: <i>She slams the door, leaving me and the rest of the food on her stained doormat.</i>
-    <<expression CompanionNubs worried>>
-    Nubs: I don’t think that was a good idea…
-    Luna: <i>I ignore the creature and instead snap a photo of the delivery because I need to prove that I did it correctly. A job's a job.</i>
-    <<pose Luna_Neutral SceneSample_LunaFadeOut>>
-    <<pose CompanionNubs CompanionNubsFadeOut>>
-    <<wait 1>>
-    <<exit Luna_Neutral>>
-    <<exit CompanionNubs>>
-    <<fadeOut 1>>
-    <<camera BlackImage>>
-    <<fadeIn 1>>
-    Luna: <i>20 minutes later, I get a negative rating on the SL0P app AND a violation as the cherry on top. It notes the doormat stain as damaged property.</i>
-    Luna: <i>But who cares? A person who lives in that building is clearly rich enough to buy anything they want without blinking an augmented eye…</i>
-    <<fadeOut 1>>
-    <<stopMusic>>
-    <<jump Bad_Outcome>>
+   <<set $badend += 1>>
+   <<expression Influencer annoyed>>
+   Queenie: Wow, you don’t have to be a bitch about it!
+   <<expression Luna_Neutral arms_annoyed>>    
+   Luna: You live in a penthouse suite where everything's delivered to your door. And you STILL can't take cancel culture? It's giving privileged sob story.
+   Queenie: Get out of my face. We're done.
+   <<pose Influencer InfluencerFadeOut>>
+   <<wait 1>>
+   <<exit Influencer>>
+   <<camera PenthouseClosed>>
+   <<expression CompanionNubs worried>>
+   Nubs: I don’t think that was a good idea…
+   Luna: Whatever. A job's a job.
+   <<pose Luna_Neutral SceneSample_LunaFadeOut>>
+   <<pose CompanionNubs CompanionNubsFadeOut>>
+   <<wait 1>>
+   <<exit Luna_Neutral>>
+   <<exit CompanionNubs>>
+   <<fadeOut 1>>
+   <<camera BlackImage>>
+   <<fadeIn 1>>
+   Luna: <i>20 minutes later, I get a negative rating on the SL0P app AND a violation as the cherry on top. It notes the doormat stain as damaged property.</i>
+   Luna: <i>But who cares? A person who lives in that building is clearly rich enough to buy anything they want without blinking an augmented eye…</i>
+   <<fadeOut 1>>
+   <<stopMusic>>
+   <<jump Bad_Outcome>>
+
 
 <<pose Luna_Neutral SceneSample_LunaFadeOut>>
 <<pose CompanionNubs CompanionNubsFadeOut>>
@@ -726,6 +739,7 @@ Luna: <i>Maybe there's more to Frisscity than meets the eye…</i>
 <<jump Influencer_Good_Outcome>>
 ===
 
+
 title: Influencer_Good_Outcome
 ---
 <<playMusic sundayNeons>>
@@ -742,37 +756,37 @@ Luna: <i>The shadow of Root Town lingers in the distance across the ocean.</i>
 ////////// Show new phone message opportunities by showing the new notification status on the cyberdeck’s NATIO 3000 logo
 // If player received the beauty sample addressed to Kaya, then also show the below:
 <<if $sample == 1>>
-    <<expression Luna_Neutral arms_surprised>>
-    Luna: (I hate to admit it, but riffing with Queenie was kinda cool.)
-    <<expression Luna_Neutral arms_happy>>
-    <<expression Nubs arms_happy>>
-    Luna: (And now, Kaya will owe me 1,000 favors.)
-    Nubs: You're hella thinking about Queenie, aren't you?
-    <<expression Luna_Neutral neutral>>
-    Luna: Hell no. Also, when did you start saying “hella”?
-    <<expression Nubs loading>>
-    Nubs: I observed your conversation and picked up a few things. Before you rudely called me a pet and pushed me away before I could fully scan her personal information.
-    Luna: You'll pick up more slang when we go to Root Town. The more you talk like a local, the better you’ll blend in.
-    Nubs: This vernacular is much more fascinating and complex than overused acronyms…like T.A.B.
-    Luna: So you admit it was a dumb name!
-    <<expression Nubs wave_angry>>
-    Nubs: No I don't! I would not admit to such a thing!
-    <<expression Nubs neutral>>
+   <<expression Luna_Neutral arms_surprised>>
+   Luna: (I hate to admit it, but riffing with Queenie was kinda cool.)
+   <<expression Luna_Neutral arms_happy>>
+   <<expression Nubs arms_happy>>
+   Luna: (And now, Kaya will owe me 1,000 favors.)
+   Nubs: You're hella thinking about Queenie, aren't you?
+   <<expression Luna_Neutral neutral>>
+   Luna: Hell no. Also, when did you start saying “hella”?
+   <<expression Nubs loading>>
+   Nubs: I observed your conversation and picked up a few things. Before you rudely called me a pet and pushed me away before I could fully scan her personal information.
+   Luna: You'll pick up more slang when we go to Root Town. The more you talk like a local, the better you’ll blend in.
+   Nubs: This vernacular is much more fascinating and complex than overused acronyms…like T.A.B.
+   Luna: So you admit it was a dumb name!
+   <<expression Nubs wave_angry>>
+   Nubs: No I don't! I would not admit to such a thing!
+   <<expression Nubs neutral>>
 <<endif>>
 // Continue with the below text. If the player didn’t receive the beauty sample addressed to Kaya, then just show the below:
-Luna: <i>I notice Nubs is lost in thought.</i>
+Nubs: …
 Luna: What's wrong?
 Nubs: I'm thinking about what Queenie said. My emotions radar picked up feelings of sadness and stress.
-<<expression Nubs worried>> 
+<<expression Nubs worried>>
 Nubs: I can only infer that this sadness came from AGENTS.
-Luna: Well, yeah. AGENTS is bad.
+Luna: Well, yeah. AGENTS <i>is</i> bad.
 Nubs: But why is AGENTS bad? Our mission is to help humankind advance towards a new evolutional frontier.
-<<expression Luna_Neutral arms_neutral>> 
+<<expression Luna_Neutral arms_neutral>>
 Luna: You heard Queenie. She's trapped in a never-ending cycle of subscriptions that AGENTS cornered her into after she got her skin implant.
 Luna: She relies on AGENTS to live. And relying on something isn't a choice. It's parasitic.
-<<expression Nubs arms_worried>> 
+<<expression Nubs arms_worried>>
 Nubs: I see…
-<<expression Luna_Neutral neutral>> 
+<<expression Luna_Neutral neutral>>
 Luna: And if we wanna keep talking about parasites, then look over there.
 Luna: <i>I point over to Root Town and the smoke that billows from its buildings in the distance.</i>
 Luna: That's what AGENTS did to my home. To me.
@@ -781,7 +795,6 @@ Luna: Frisscity relies on Root Town for people who will do their dirty work. And
 Luna: I'm a prime example of that.
 Nubs: …
 Nubs: Perhaps I am a parasite…
-Luna: (Damn, I'm clearly bumming the little guy out.)
 <<expression Luna_Neutral shy_neutral>>
 Luna: But meeting Queenie got me thinking. Maybe I've been judging everyone who lives here a little too harshly.
 <<expression Nubs neutral>>
@@ -792,11 +805,11 @@ Nubs: Luna…
 Nubs: Omigods, you're HELLA cool right now!
 <<expression Luna_Neutral shy>>
 Luna: S-Shut up, don't read too much into it! I still hate AGENTS and what your master does.
-Luna: <i>Nubs laughs for the first time and it sounds like a series of high-pitched chirps.</i>
-Luna: <i>It's…honestly pretty cute.</i>
 <<jump LilGuy_Respite>>
 // You can find this node in the Climax.yarn tab
 ===
+
+
 
 
 title: Bad_Outcome
@@ -813,8 +826,8 @@ Luna: <i>I wrap up my delivery job and make my way over to The Bridge. The shado
 <<place Nubs>>
 <<expression Nubs neutral>>
 Luna: <i>I'm one step closer to sending this creature back to where he came from.</i>
-Luna: <i>But Nubs seems lost in thought.</i>
-Luna: What's wrong?
+Nubs: …
+Luna: Now what?
 Nubs: I'm thinking about the delivery and the emotions my mood radar picked up during it all.
 Nubs: I was getting readings of sadness. And anger.
 <<expression Nubs worried>>
