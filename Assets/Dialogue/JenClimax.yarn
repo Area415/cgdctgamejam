@@ -728,10 +728,12 @@ Kaya: Luna, spill.
     <<expression CompanionNubs happy_evolution>>
     <<expression Nat scared>>
     Nubs: Luna saved me from absolute peril and destruction! 
+    <<expression Kaya_Neutral annoyed>>
+    <<expression Luna_Neutral arms_delivery_dropped>>
     Nubs: She told me about her exhilarating chase across The Bridge while I was brainwashed and immobile during the time. 
     Nubs: But my estimations determine that she was going well over 90 miles per hour!
-    <<expression Luna_Neutral arms_annoyed>>
     Nubs: She didn't just face off any corporate loser, either—she duked it out with a Disciple of AGENTS. The company's top brass!
+    <<expression Luna_Neutral arms_annoyed>>
     Nat: …
     Kaya: …
     Luna: …
@@ -745,6 +747,8 @@ Kaya: Luna, spill.
      Nat: …
      Kaya: …
      <<expression CompanionNubs happy_evolution>>
+     <<expression Luna_Neutral arms_delivery_dropped>>
+     <<expression Kaya_Neutral annoyed>>
      Nubs: His remains are probably still on the road as we speak. May he rest in peace, the guy who named me T.A.B.
      <<expression Nat neutral>>
      Nat: T.A.B?
@@ -752,8 +756,8 @@ Kaya: Luna, spill.
     <<expression Nat scared>>
      Nat: Ew.
      <<expression CompanionNubs neutral_evolution>>
+     <<expression Luna_Neutral shy_annoyed>>
      Nubs: Yeah, that’s what Luna said when we first met.
-     <<expression Kaya_Neutral annoyed>>
      Kaya: Uh, excuse me? “REMAINS!?”
      Luna: He's still alive…I think.
 
