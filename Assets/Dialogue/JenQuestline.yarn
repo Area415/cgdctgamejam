@@ -437,6 +437,7 @@ Luna: …
 <<expression CompanionNubs arms_neutral>>
 <<wait .5>>
 <<playSFX doorClick>>
+<<expression Luna_Neutral surprised>>
 <<jump Influencer_Continued>>
 ===
 
@@ -477,6 +478,7 @@ title: Influencer_Continued
 Luna: (Is that bead on her forehead…an AGENTS implant?)
 <<expression Influencer happy>>
 ???_Queenie: Heyo, fam! My catering order from SL0P just arrived. Powered by AGENTS, of course! I always try to shop local and support real human labor in our community—
+<<expression Luna_Neutral neutral>>
 Luna: <i>She spots the stain on her doormat—and so do her followers.</i>
 <<expression Influencer annoyed>>
 ???_Queenie: ...
@@ -596,10 +598,10 @@ title: Queenie_Questions
        <<expression Influencer neutral>>
 
 
-Queenie: I'm used to Root Town’s hate.
+Queenie: Well, I'm used to Root Town’s hate.
+<<expression Influencer annoyed>>
 Queenie: Because I got famous for reviewing beauty products. Because I moved to Frisscity. Then got AGENTS implants.
 <<expression CompanionNubs arms_worried>>
-<<expression Influencer annoyed>>
 Queenie: YOU try living with the fear of your skin corroding unless you keep paying for your AGENTS subscription.
 Nubs: …
 Queenie: Wanna try forcing AGENTS discount codes down people’s throats all day, just to collect your 30% paycheck?
@@ -663,12 +665,14 @@ title: Queenie_Ideas
    <<expression Luna_Neutral arms_delivery_dropped>>
    Nubs: Like–
    <<expression Luna_Neutral happy>>
+   <<expression Influencer neutral>>
    Luna: D-Don't mind him! I…installed a new microchip that allows him to talk! It's still a little buggy.
    <<expression CompanionNubs angry>>
    Nubs: I'm not buggy! I've been cleared of 31 SEVs and over 2,000 coding errors!
    Luna: Vaccinations! Sooo many vaccinations. Pets are so expensive, y'know?
    <<expression CompanionNubs wave_angry>>
    Nubs: I. AM NOT. A PET!!
+   Luna: Gotta go!
 -> Just keep doing you. You need to give people time.
    <<set $goodend += 1>>
    <<expression Luna_Neutral arms_neutral>>
@@ -687,12 +691,14 @@ title: Queenie_Ideas
    <<expression Luna_Neutral arms_delivery_dropped>>
    Nubs: Like-
    <<expression Luna_Neutral happy>>
+   <<expression Influencer neutral>>
    Luna: D-Don't mind him! I installed a new microchip that allows him to talk. It's still a little buggy.
    <<expression CompanionNubs angry>>
    Nubs: I'm not buggy! I've been cleared of 31 SEVs and over 2,000 coding errors!
    Luna: Vaccinations! Sooo many vaccinations. Pets are so expensive, y'know?
    <<expression CompanionNubs wave_angry>>
    Nubs: I. AM NOT. A PET!!
+   Luna: Gotta go!
 -> Internet trolls are a small price to pay for your flex city life.
    <<set $badend += 1>>
    <<expression Influencer annoyed>>
