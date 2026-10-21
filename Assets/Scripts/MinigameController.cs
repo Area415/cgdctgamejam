@@ -75,6 +75,7 @@ public class MinigameController : MonoBehaviour
         if (currentState != GameState.Playing) return;
 
         HandleInput();
+        SmoothMoveBike();
         UpdateTimerAndDifficulty();
         ScrollRoadSeamlessly();
         HandleObstacles();
@@ -104,6 +105,15 @@ public class MinigameController : MonoBehaviour
         activeObstacles.Clear();
         spawnTimer = currentSpawnInterval;
 
+        AudioSource[] allAudioSources = FindObjectsByType<AudioSource>(FindObjectsSortMode.None);
+        foreach (AudioSource src in allAudioSources)
+        {
+            if (src != null && src != minigameMusic && src.isPlaying)
+            {
+                src.Pause();
+            }
+        }
+
         if (minigameMusic != null)
         {
             minigameMusic.Play();
@@ -119,22 +129,26 @@ public class MinigameController : MonoBehaviour
         if (Keyboard.current.leftArrowKey.wasPressedThisFrame || Keyboard.current.aKey.wasPressedThisFrame)
         {
             if (currentLane > 0) currentLane--;
-            UpdatePlayerPosition();
         }
         else if (Keyboard.current.rightArrowKey.wasPressedThisFrame || Keyboard.current.dKey.wasPressedThisFrame)
         {
             if (currentLane < lanePositions.Length - 1) currentLane++;
-            UpdatePlayerPosition();
         }
+    }
+
+    private void SmoothMoveBike()
+    {
+        if (playerBike == null) return;
+        
+        Vector2 currentPos = playerBike.anchoredPosition;
+        float targetX = lanePositions[currentLane];
+        
+        currentPos.x = Mathf.Lerp(currentPos.x, targetX, Time.deltaTime * 15f);
+        playerBike.anchoredPosition = currentPos;
     }
 
     private void UpdatePlayerPosition()
     {
-        if (playerBike == null) return;
-        
-        Vector2 pos = playerBike.anchoredPosition;
-        pos.x = lanePositions[currentLane];
-        playerBike.anchoredPosition = pos;
     }
 
     private void UpdateTimerAndDifficulty()
@@ -246,6 +260,15 @@ public class MinigameController : MonoBehaviour
             minigameMusic.Stop();
         }
 
+        AudioSource[] allAudioSources = FindObjectsByType<AudioSource>(FindObjectsSortMode.None);
+        foreach (AudioSource src in allAudioSources)
+        {
+            if (src != null && src != minigameMusic && !src.isPlaying)
+            {
+                src.UnPause();
+            }
+        }
+
         if (timeSurvived > highScore)
         {
             highScore = timeSurvived;
@@ -282,6 +305,11 @@ public class MinigameController : MonoBehaviour
         if (minigameMusic != null)
         {
             minigameMusic.Stop();
+        }
+
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.ResumeMusic();
         }
 
         CyberdeckController cyberdeck = FindObjectOfType<CyberdeckController>();

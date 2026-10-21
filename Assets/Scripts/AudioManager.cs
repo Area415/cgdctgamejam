@@ -121,4 +121,20 @@ public class AudioManager : MonoBehaviour
         Debug.LogWarning($"SFX '{name}' was not found in the AudioManager.");
         return null;
     }
+
+    public void PauseMusic()
+    {
+        if (persistentMusicSource != null)
+        {
+            persistentMusicSource.Pause();
+        }
+    }
+
+    public void ResumeMusic()
+    {
+        if (persistentMusicSource != null)
+        {
+            persistentMusicSource.UnPause();
+        }
+    }
 }
