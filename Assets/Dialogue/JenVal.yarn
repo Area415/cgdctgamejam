@@ -230,6 +230,7 @@ Luna: <i>Or WITH her? Hm, which is it…?</i>
 <<expression Luna_Neutral surprised>>
 Luna: Huh?
 <<wait 0.5>>
+<<place Zine>>
 Luna: Looks like a zine page.
 Luna: (A very gearhead zine.)
 Luna: Let’s see what it says…
@@ -246,6 +247,7 @@ Luna: The rest is covered in notes. I can’t make out anything else on the page
 <<expression Luna_Neutral arms_shy>>
 <<bike Luna_Neutral on>>
 Luna: (I’ll give it back to Val the next time I see her.)
+<<exit Zine>>
 <<wait 0.5>>
 // SFX cyberdeck notification ping
 <<playSFX notification>>
