@@ -7231,6 +7231,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: e548dba859296449ca85832b30bda396, type: 3}
   - name: doorClick
     clip: {fileID: 8300000, guid: 4c01cb675e91c47d68d71e63ad0edb00, type: 3}
+  - name: bikeSputter
+    clip: {fileID: 8300000, guid: bdddaf9a9e5bc467d951f5df0c04a185, type: 3}
 --- !u!4 &1378181040
 Transform:
   m_ObjectHideFlags: 0
