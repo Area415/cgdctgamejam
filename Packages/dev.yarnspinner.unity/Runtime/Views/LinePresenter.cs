@@ -260,22 +260,11 @@ namespace Yarn.Unity
                     break;
 
                 case TypewriterType.ByLetter:
-                    int SpeedIndex = PlayerPrefs.GetInt("TextSpeedIndex", 0);
-                    Debug.Log("TextSpeedIndex: " + SpeedIndex);
-                    int speed;
-                    if (SpeedIndex == 0) //1x
-                        speed = 30;
-                    else if (SpeedIndex == 1) //1.5x
-                        speed = 60;
-                    else//2x
-                        speed = 120;
-
                     Typewriter = new LetterTypewriter()
                     {
                         ActionMarkupHandlers = ActionMarkupHandlers,
                         TextElement = this.lineText,
-                        CharactersPerSecond = speed,
-                        //CharactersPerSecond = this.lettersPerSecond,
+                        CharactersPerSecond = this.lettersPerSecond,
                     };
                     break;
 
@@ -301,13 +290,6 @@ namespace Yarn.Unity
                     }
                     break;
             }
-            int sizeIndex = PlayerPrefs.GetInt("TextSizeIndex", 1);
-            if (sizeIndex == 0)
-                lineText.fontSize = 24;
-            else if (sizeIndex == 1)
-                lineText.fontSize = 28;
-            else
-                lineText.fontSize = 34;
         }
 
         /// <summary>Presents a line using the configured text view.</summary>

@@ -71,6 +71,12 @@ public class SettingsMenuManager : MonoBehaviour
         LoadSettings();
     }
 
+    // Leaving the menu any other way (e.g. switching cyberdeck tabs) drops unsaved changes.
+    private void OnDisable()
+    {
+        RevertUnsavedChanges();
+    }
+
     private void Start()
     {
         if (CreditsContents != null && SettingsContents != null)
@@ -107,6 +113,7 @@ public class SettingsMenuManager : MonoBehaviour
         if (BigButton != null) BigButton.GetComponent<Image>().sprite = UnselectedBigButton;
 
         TextSizeIndex = 0;
+        GameSettings.Preview(TextSpeedIndex, TextSizeIndex);
     }
     public void TextSizeMidPressed()
     {
@@ -115,6 +122,7 @@ public class SettingsMenuManager : MonoBehaviour
         if (BigButton != null) BigButton.GetComponent<Image>().sprite = UnselectedBigButton;
 
         TextSizeIndex = 1;
+        GameSettings.Preview(TextSpeedIndex, TextSizeIndex);
     }
     public void TextSizeBigPressed()
     {
@@ -123,6 +131,7 @@ public class SettingsMenuManager : MonoBehaviour
         if (SmallButton != null) SmallButton.GetComponent<Image>().sprite = UnselectedSmallButton;
 
         TextSizeIndex = 2;
+        GameSettings.Preview(TextSpeedIndex, TextSizeIndex);
     }
 
     //TEXT SPEED
@@ -130,10 +139,9 @@ public class SettingsMenuManager : MonoBehaviour
     {
         if (TextSpeedDropdown != null)
         {
-            int index = TextSpeedDropdown.value;
-            PlayerPrefs.SetInt("TextSpeedIndex", index);
-            PlayerPrefs.Save();
-            Debug.Log("TextSpeedIndex: " + index);
+            TextSpeedIndex = TextSpeedDropdown.value;
+            GameSettings.Preview(TextSpeedIndex, TextSizeIndex);
+            GameSettings.Save();
         }
     }
 
@@ -144,6 +152,7 @@ public class SettingsMenuManager : MonoBehaviour
         if (TSp2Button != null) TSp2Button.GetComponent<Image>().sprite = Unselected2XButton;
 
         TextSpeedIndex = 0;
+        GameSettings.Preview(TextSpeedIndex, TextSizeIndex);
     }
     public void TextSpeed15XPressed()
     {
@@ -152,6 +161,7 @@ public class SettingsMenuManager : MonoBehaviour
         if (TSp2Button != null) TSp2Button.GetComponent<Image>().sprite = Unselected2XButton;
 
         TextSpeedIndex = 1;
+        GameSettings.Preview(TextSpeedIndex, TextSizeIndex);
     }
     public void TextSpeed2XPressed()
     {
@@ -160,6 +170,7 @@ public class SettingsMenuManager : MonoBehaviour
         if (TSp15Button != null) TSp15Button.GetComponent<Image>().sprite = Unselected15XButton;
 
         TextSpeedIndex = 2;
+        GameSettings.Preview(TextSpeedIndex, TextSizeIndex);
     }
 
     //VOLUME
@@ -195,11 +206,9 @@ public class SettingsMenuManager : MonoBehaviour
         if (MusicVolumeSlider != null) PlayerPrefs.SetFloat("MusicVolume", MusicVolumeSlider.value);
         if (SFXVolumeSlider != null) PlayerPrefs.SetFloat("SFXVolume", SFXVolumeSlider.value);
 
-        //Text Speed
-        PlayerPrefs.SetInt("TextSpeedIndex", TextSpeedIndex);
-
-        //Text Size
-        PlayerPrefs.SetInt("TextSizeIndex", TextSizeIndex);
+        //Text Speed + Size (through GameSettings so the dialogue updates too)
+        GameSettings.Preview(TextSpeedIndex, TextSizeIndex);
+        GameSettings.Save();
 
         PlayerPrefs.Save();
         Debug.Log("Settings saved!");
@@ -227,7 +236,7 @@ public class SettingsMenuManager : MonoBehaviour
         }
 
         //Text Speed
-        TextSpeedIndex = PlayerPrefs.GetInt("TextSpeedIndex", 0);
+        TextSpeedIndex = GameSettings.TextSpeedIndex;
         switch (TextSpeedIndex)
         {
             case 0:
@@ -242,7 +251,7 @@ public class SettingsMenuManager : MonoBehaviour
         }
 
         //Text Size
-        TextSizeIndex = PlayerPrefs.GetInt("TextSizeIndex", 1);
+        TextSizeIndex = GameSettings.TextSizeIndex;
         switch (TextSizeIndex)
         {
             case 0:
@@ -261,6 +270,8 @@ public class SettingsMenuManager : MonoBehaviour
 
     private void RevertUnsavedChanges()
     {
+        GameSettings.Revert();
+
         //Volume
         float masterVolume = PlayerPrefs.GetFloat("MasterVolume", 0f);
         float musicVolume = PlayerPrefs.GetFloat("MusicVolume", 0f);
@@ -278,7 +289,7 @@ public class SettingsMenuManager : MonoBehaviour
         }
 
         //Text Speed
-        TextSpeedIndex = PlayerPrefs.GetInt("TextSpeedIndex", 0);
+        TextSpeedIndex = GameSettings.TextSpeedIndex;
         switch (TextSpeedIndex)
         {
             case 0:
@@ -293,7 +304,7 @@ public class SettingsMenuManager : MonoBehaviour
         }
 
         //Text Size
-        TextSizeIndex = PlayerPrefs.GetInt("TextSizeIndex", 1);
+        TextSizeIndex = GameSettings.TextSizeIndex;
         switch (TextSizeIndex)
         {
             case 0:
