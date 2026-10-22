@@ -10,11 +10,10 @@
 <<declare $knowsGreenHint = false>>
 <<declare $knowsBlueHint = false>>
 Luna: The only thing I need is a big offer so I can get the hell home.
-//////////// Play SFX of a motorcycle engine puttering or breaking down
+<<pose Luna_Neutral LunaBikeBreakdown>>
+<<playSFX bikeSputter>>
 <<expression Luna_Neutral arms_surprised>>
 Luna: Oh no. 
-//////////// Play SFX of a motorcycle engine puttering or breaking down
-//////////// Show animation of the motorcycle vigorously shaking or jittering
 <<expression Luna_Neutral arms_delivery_dropped>>
 Luna: No, no, NO! You have no right to break down. Not on rent day! 
 Luna: I’m totally screwed!
@@ -33,10 +32,9 @@ Luna: H-Hey, Val. No, not yet. Still getting the low-tipping vegans and—
 Luna: —And uh, some small bike trouble stuff.
 <<expression Val neutral>>
 Val: It sure <i>sounds</i> big. Let me help you!
-<<expression Luna_Neutral neutral>>
+<<expression Luna_Neutral shy>>
 Luna: R-Really?
 <<expression Val flirty>>
-<<expression Luna_Neutral shy>>
 Val: Really. Consider it my “favorite customer special!” Just this once.
 <<pose Luna_Neutral SceneSample_LunaFadeOut>>
 <<pose Val SceneSample_ValFadeOut>>
@@ -46,7 +44,9 @@ Val: Really. Consider it my “favorite customer special!” Just this once.
 <<fadeOut 2>>
 <<camera ValFixBike>>
 <<fadeIn 2>>
+<<playSFX valWrench>>
 Val: Let’s see what we’re working with here…
+<<playSFX valWrench>>
 Val: Oh it’s THIS manufacturer! They wire up all of their models the same way. Too bad the quality is a little…
 Luna: Shitty?
 Val: But this is an easy fix! The order should be tattooed in a real mechanic’s brain. 
