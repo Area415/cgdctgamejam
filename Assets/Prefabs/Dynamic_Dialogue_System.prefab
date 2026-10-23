@@ -152,7 +152,7 @@ MonoBehaviour:
   skipOnTint: {r: 0.45, g: 1, b: 0.85, a: 1}
   autoModeController: {fileID: 145764926311469338}
   continueButton: {fileID: 9206948837144769268}
-  optionsCanvasGroup: {fileID: 0}
+  optionsCanvasGroup: {fileID: 2329703166095177436}
 --- !u!1 &918523220205245369
 GameObject:
   m_ObjectHideFlags: 0
@@ -497,7 +497,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 25
   m_TargetDisplay: 0
 --- !u!114 &4259855054825893805
 MonoBehaviour:
@@ -532,6 +532,7 @@ GameObject:
   - component: {fileID: 3439272539751429017}
   - component: {fileID: 7933225190145743821}
   - component: {fileID: 6976103429933294721}
+  - component: {fileID: 3166494876695434744}
   m_Layer: 5
   m_Name: Dynamic_Dialogue_System
   m_TagString: Untagged
@@ -629,7 +630,7 @@ MonoBehaviour:
   canvasGroup: {fileID: 8837815448666143888}
   lineText: {fileID: 5420778378188681748}
   showCharacterNameInLine: 0
-  characterNameText: {fileID: 0}
+  characterNameText: {fileID: 5330869542051958578}
   characterNameContainer: {fileID: 0}
   useFadeEffect: 1
   fadeUpDuration: 0.25
@@ -684,6 +685,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSettingsApplier
   linePresenter: {fileID: 0}
   baseFontSize: 28
+--- !u!114 &3166494876695434744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1619584320906332410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7e5ce715aa704c368b8e92679832508, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NameplateSwitch
+  yarnNameText: {fileID: 5330869542051958578}
+  nameplateObject: {fileID: 4778148744476528233}
+  nameplateImage: {fileID: 581381416255552057}
+  nameplates:
+  - characterName: Luna
+    nameplateSprite: {fileID: 21300000, guid: b4d08ecc2082bc3468f8eaee3184c66a, type: 3}
+  - characterName: Val
+    nameplateSprite: {fileID: 21300000, guid: 01edee0bd1cf6450d805ca30d5b8575a, type: 3}
+  - characterName: Incompetent Director
+    nameplateSprite: {fileID: 21300000, guid: 6e23f8d99b3a0400d847224b66fad0d5, type: 3}
+  - characterName: Maxx
+    nameplateSprite: {fileID: 21300000, guid: f3ac23d61fe5a4b3d806ff9d29812529, type: 3}
+  - characterName: The Big Bad
+    nameplateSprite: {fileID: 21300000, guid: 9e217a52ad4214672af5dddea5e01824, type: 3}
+  - characterName: Nubs
+    nameplateSprite: {fileID: 21300000, guid: 6a7274496bc8245239aa16b56d74e108, type: 3}
+  - characterName: Benji
+    nameplateSprite: {fileID: 21300000, guid: cffba5c33efd84448a3afd0b594e08da, type: 3}
+  - characterName: Kaya
+    nameplateSprite: {fileID: 21300000, guid: b2ab63247333c4dae930fdd03c11b6f5, type: 3}
+  - characterName: Cybergull
+    nameplateSprite: {fileID: 21300000, guid: b0a4329efc3994dbaba9211c0ab14693, type: 3}
+  - characterName: Nat
+    nameplateSprite: {fileID: 21300000, guid: de1bbc706e4ae4893aa65fd5f174b9a4, type: 3}
+  - characterName: T.A.B
+    nameplateSprite: {fileID: 21300000, guid: 6a7274496bc8245239aa16b56d74e108, type: 3}
+  - characterName: Queenie
+    nameplateSprite: {fileID: 21300000, guid: 4ce4b97dfa27141afb3662ca058c8796, type: 3}
 --- !u!1 &1622231844452832523
 GameObject:
   m_ObjectHideFlags: 0
@@ -2033,6 +2074,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2148958537591250627, guid: 0116cd796c87a4a908bcc362fd852794, type: 3}
+      propertyPath: m_Name
+      value: Cyberdeck Icon Group
+      objectReference: {fileID: 0}
     - target: {fileID: 2184622881880202912, guid: 0116cd796c87a4a908bcc362fd852794, type: 3}
       propertyPath: m_Spacing
       value: 5
@@ -2189,6 +2234,18 @@ PrefabInstance:
       propertyPath: m_fontColor32.rgba
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 4299563103693037253, guid: 0116cd796c87a4a908bcc362fd852794, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4299563103693037253, guid: 0116cd796c87a4a908bcc362fd852794, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 440
+      objectReference: {fileID: 0}
+    - target: {fileID: 4299563103693037253, guid: 0116cd796c87a4a908bcc362fd852794, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4958823041029937455, guid: 0116cd796c87a4a908bcc362fd852794, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2219,12 +2276,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7483087867778082572, guid: 0116cd796c87a4a908bcc362fd852794, type: 3}
       propertyPath: m_Type
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7483087867778082572, guid: 0116cd796c87a4a908bcc362fd852794, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: b4d08ecc2082bc3468f8eaee3184c66a, type: 3}
+    - target: {fileID: 7983141804494634403, guid: 0116cd796c87a4a908bcc362fd852794, type: 3}
+      propertyPath: m_Name
+      value: Cyberdeck
+      objectReference: {fileID: 0}
     - target: {fileID: 8269772508145243897, guid: 0116cd796c87a4a908bcc362fd852794, type: 3}
       propertyPath: m_text
       value: CYBERDECK
@@ -2281,7 +2342,26 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2148958537591250627, guid: 0116cd796c87a4a908bcc362fd852794, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7472132622475502668}
+    - targetCorrespondingSourceObject: {fileID: 2148958537591250627, guid: 0116cd796c87a4a908bcc362fd852794, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3951190892213132445}
   m_SourcePrefab: {fileID: 100100000, guid: 0116cd796c87a4a908bcc362fd852794, type: 3}
+--- !u!114 &581381416255552057 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7483087867778082572, guid: 0116cd796c87a4a908bcc362fd852794, type: 3}
+  m_PrefabInstance: {fileID: 8054757845404376373}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4778148744476528233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+--- !u!1 &4778148744476528233 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3280691330994328412, guid: 0116cd796c87a4a908bcc362fd852794, type: 3}
+  m_PrefabInstance: {fileID: 8054757845404376373}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5110446296882114820 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2964437560195034161, guid: 0116cd796c87a4a908bcc362fd852794, type: 3}
@@ -2309,7 +2389,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 25
   m_TargetDisplay: 0
 --- !u!114 &4043164382687279631
 MonoBehaviour:
@@ -2328,6 +2408,17 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &5330869542051958578 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2752598837979419143, guid: 0116cd796c87a4a908bcc362fd852794, type: 3}
+  m_PrefabInstance: {fileID: 8054757845404376373}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!224 &6561775045129517909 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3807833302978127456, guid: 0116cd796c87a4a908bcc362fd852794, type: 3}
@@ -2398,8 +2489,8 @@ MonoBehaviour:
   m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_HighlightedColor: {r: 0.24705882, g: 0.8117647, b: 0.75686276, a: 1}
+    m_PressedColor: {r: 0.093716644, g: 0.509434, b: 0.46901694, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -2421,14 +2512,39 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+        m_TargetAssemblyTypeName: VisualNovel, Assembly-CSharp
+        m_MethodName: PauseDialogue
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: CyberdeckController, Assembly-CSharp
+        m_MethodName: OpenCyberdeckGeneral
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+--- !u!114 &3951190892213132445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8222057736204256246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9c4721f3dc1447ea950695b27ae19d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HoverTint
+  hoverColor: {r: 0.24705882, g: 0.8117647, b: 0.75686276, a: 1}
