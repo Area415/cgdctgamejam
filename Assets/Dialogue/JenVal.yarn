@@ -29,6 +29,8 @@ Luna: H-Hey, Val. No, not yet. Still getting the low-tipping vegans and—
 //////////// Show animation of the motorcycle vigorously shaking or jittering
 <<expression Luna_Neutral arms_delivery_dropped>>
 <<expression Val laugh>>
+<<playSFX bikeRev>>
+<<pose Luna_Neutral BikeRev>>
 Luna: —And uh, some small bike trouble stuff.
 <<expression Val neutral>>
 Val: It sure <i>sounds</i> big. Let me help you!
