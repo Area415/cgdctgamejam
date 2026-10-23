@@ -25,8 +25,6 @@ Luna: <i>I recognize those tires. And the baddie who rides them.</i>
 Val: Luna! My favorite human delivery girl. Have you been making bank today?
 <<expression Luna_Neutral arms_shy>>
 Luna: H-Hey, Val. No, not yet. Still getting the low-tipping vegans and—
-//////////// Play SFX of a motorcycle engine puttering or breaking down
-//////////// Show animation of the motorcycle vigorously shaking or jittering
 <<expression Luna_Neutral arms_delivery_dropped>>
 <<expression Val laugh>>
 <<playSFX bikeRev>>
@@ -231,21 +229,21 @@ Luna: <i>If it wasn't for my shitty situation, I'd be just like her.</i>
 Luna: <i>Or WITH her? Hm, which is it…?</i>
 <<expression Luna_Neutral surprised>>
 Luna: Huh?
-<<wait 0.5>>
+Luna: <i>Something flies off Val's bike as she rides away.</i>
 <<place Zine>>
-Luna: Looks like a zine page.
+Luna: Looks like a zine.
 Luna: (A very gearhead zine.)
 Luna: Let’s see what it says…
 <<if $knowsGreenHint == true>>
-Luna: Last goes green…
+Luna: I think it says...last goes green…
 <<endif>> 
 <<if $knowsBlueHint == true>>
-Luna: Blue before yellow…
+Luna: Something about blue before yellow…
 <<endif>> 
 <<if $knowsRedHint == true>>
 Luna: And red comes first…
 <<endif>> 
-Luna: The rest is covered in notes. I can’t make out anything else on the page. 
+Luna: This is for wrench fanatics. I have no idea what any of it means.
 <<expression Luna_Neutral arms_shy>>
 <<bike Luna_Neutral on>>
 Luna: (I’ll give it back to Val the next time I see her.)
@@ -257,6 +255,10 @@ Luna: (I’ll give it back to Val the next time I see her.)
 Luna: Jackpot.
 Luna: <i>A big offer on the SL0P app finally lands on my screen.</i>
 Luna: <i>I quickly accept the offer. It reveals the coordinates of my delivery order's pickup location.</i>
+// Cyberdeck Home: the mystery job (Nubs)
+<<set_job "CURRENT JOB" "IN PROGRESS" "#????">>
+<<set_job_route "CLASSIFIED" "CLASSIFIED">>
+<<set_job_progress 0.15>>
 Luna: Time to roll.
 <<expression Luna_Neutral neutral>>
 // Luna leaves
@@ -465,6 +467,7 @@ title: TransporterPod
 <<place Luna_Neutral>>
 <<expression Luna_Neutral arms_neutral>>
 <<fadeIn 2>>
+Luna: <i>The bird-bro takes off in a huff and that’s when I see it: a sleek pod, half-buried in garbage.</i>
 Luna: So the app didn’t crash out. But who leaves an AGENTS delivery pod out here…?
 <<expression Luna_Neutral arms_delivery_dropped>>
 <<pose NubsPod PodRattle>>
@@ -636,6 +639,7 @@ title: LilGuyReaction
    T.A.B: It's too late! This AGENTS pod sensor has already captured your DNA, which can and will be used against you in the court of law.
    <<expression Luna_Neutral neutral>>
    Luna: Oh yeah?
+   <<playSFX podDump>>
    Luna: <i>I immediately shove the transporter pod into the dumpster and smear its sensor with unspeakable leftovers.</i>
    <<expression Luna_Neutral happy>>
    Luna: Oops! There goes my DNA.
@@ -770,6 +774,9 @@ Luna: Ugh. It's Luna.
 <<expression Luna_Neutral arms_cyberdeck>>
 <<expression Nubs confused>>
 Luna: <i>A notification flashes on my homescreen. My current delivery status for Nubs changes from “Pick up” to “Delivery on the way.” The notification reveals where to drop him off.</i>
+// Cyberdeck Home: Nubs picked up, drop-off revealed
+<<set_job_route "Alleyway – Understory" "Root Town · requestor unknown">>
+<<set_job_progress 0.5>>
 Luna: (It's in Root Town.)
 Luna: <i>I tap on the notification and try to find more information about the requestor. Nothing.</i>
 Luna: (Why would someone want a cute little bomb roaming free in the streets…?)
@@ -781,6 +788,10 @@ Luna: <i>More delivery offers from the SL0P app appear on my cyberdeck. The rate
 Luna: (Might as well squeeze another job in before riding back home…)
 
 -> Choose the offer with a lower tip and easier dropoff
+   // Cyberdeck Home: new job (Benji, easier drop-off)
+   <<set_job "CURRENT JOB" "IN PROGRESS" "#4153">>
+   <<set_job_route "Understory Donuts & Chicken & Kelp – Understory" "Lobby – Meridian District">>
+   <<set_job_progress 0.15>>
    <<expression Luna_Neutral neutral>>
    Luna: Hop on, little guy.
    Nubs: Are you taking me back to AGENTS?
@@ -810,6 +821,10 @@ Luna: (Might as well squeeze another job in before riding back home…)
            <<expression Luna_Neutral annoyed>>
 -> Choose the offer with a higher tip and harder dropoff
    <<set $bigJob = true>>
+   // Cyberdeck Home: new job (Queenie, harder drop-off)
+   <<set_job "CURRENT JOB" "IN PROGRESS" "#4154">>
+   <<set_job_route "Boo Boo's Boba Emporium – Understory" "Penthouse – Meridian District">>
+   <<set_job_progress 0.15>>
    <<expression Luna_Neutral neutral>>
    Luna: Hop on, little guy.
    Nubs: Are you taking me back to AGENTS?
