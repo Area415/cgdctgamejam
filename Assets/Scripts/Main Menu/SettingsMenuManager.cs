@@ -238,6 +238,11 @@ public class SettingsMenuManager : MonoBehaviour
         //Volume
         SyncVolumeSliders();
 
+        // Read BOTH saved values before touching any buttons. Each button press
+        // re-previews speed + size together, so both must already be correct.
+        TextSpeedIndex = GameSettings.TextSpeedIndex;
+        TextSizeIndex  = GameSettings.TextSizeIndex;
+
         //Text Speed
         TextSpeedIndex = GameSettings.TextSpeedIndex;
         switch (TextSpeedIndex)
@@ -277,6 +282,11 @@ public class SettingsMenuManager : MonoBehaviour
 
         //Volume
         SyncVolumeSliders();
+
+        // Read BOTH saved values before touching any buttons. Each button press
+        // re-previews speed + size together, so both must already be correct.
+        TextSpeedIndex = GameSettings.TextSpeedIndex;
+        TextSizeIndex  = GameSettings.TextSizeIndex;
 
         //Text Speed
         TextSpeedIndex = GameSettings.TextSpeedIndex;
