@@ -33,6 +33,12 @@ public class VisualNovel : MonoBehaviour {
         dialogueRunner = FindObjectOfType<Yarn.Unity.DialogueRunner>();
         fadeOverlay = FindObjectOfType<FadeOverlay>();
 
+        // Route the scene's music and SFX through the mixer so the volume sliders control them.
+        if (musicSource != null && musicSource.outputAudioMixerGroup == null)
+            musicSource.outputAudioMixerGroup = GameSettings.MusicGroup;
+        if (sfxSource != null && sfxSource.outputAudioMixerGroup == null)
+            sfxSource.outputAudioMixerGroup = GameSettings.SfxGroup;
+
         // <<camera NAME_OF_LOCATION>>
         // Uncomment this line to define the command:
         dialogueRunner.AddCommandHandler<Location>("camera", ChangeCameraLocation);

@@ -237,6 +237,7 @@ public class CyberdeckController : MonoBehaviour
                 GameObject tempAudio = new GameObject("TempCyberdeckAudio");
                 AudioSource source = tempAudio.AddComponent<AudioSource>();
                 source.spatialBlend = 0f; 
+                source.outputAudioMixerGroup = GameSettings.SfxGroup; // follow the SFX volume slider
                 source.PlayOneShot(clip);
                 Destroy(tempAudio, clip.length);
             }

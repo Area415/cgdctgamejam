@@ -48,6 +48,11 @@ public class AudioManager : MonoBehaviour
         {
             persistentMusicSource = gameObject.AddComponent<AudioSource>();
         }
+        // Let the Music volume slider control this source.
+        if (persistentMusicSource.outputAudioMixerGroup == null)
+        {
+            persistentMusicSource.outputAudioMixerGroup = GameSettings.MusicGroup;
+        }
 
         // When the game starts, this loop copies all the music from your Inspector List 
         // into the Dictionary for lightning-fast lookups.
