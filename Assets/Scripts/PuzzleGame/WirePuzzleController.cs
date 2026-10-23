@@ -407,7 +407,18 @@ public class WirePuzzleController : MonoBehaviour
 
     public void OnRecallButtonClicked()
     {
-        CyberdeckController cyberdeck = Resources.FindObjectsOfTypeAll<CyberdeckController>()[0];
+        // Find the cyberdeck that's actually in this scene (it may be inactive, so
+        // FindObjectOfType won't see it). FindObjectsOfTypeAll also returns prefab
+        // assets, so skip anything that isn't part of a loaded scene.
+        CyberdeckController cyberdeck = null;
+        foreach (var c in Resources.FindObjectsOfTypeAll<CyberdeckController>())
+        {
+            if (c.gameObject.scene.IsValid() && c.gameObject.scene.isLoaded)
+            {
+                cyberdeck = c;
+                break;
+            }
+        }
         
         if (cyberdeck != null)
         {
