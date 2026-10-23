@@ -71,6 +71,9 @@ public class ChatDialogueView : DialoguePresenterBase
                 minimumTypingDelay,
                 maximumTypingDelay);
 
+            // Faster Text Speed setting = shorter "typing..." wait.
+            typingDelay /= GameSettings.SpeedMultiplier;
+
             await YarnTask.Delay(TimeSpan.FromSeconds(typingDelay), token.HurryUpToken).SuppressCancellationThrow();
 
             Destroy(typingBubble.gameObject);

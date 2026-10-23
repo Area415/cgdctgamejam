@@ -49,7 +49,11 @@ public class DialogueHistory : MonoBehaviour
 
         GameObject newLine = Instantiate(historyLinePrefab, historyContentContainer);
         TMP_Text tmp = newLine.GetComponentInChildren<TMP_Text>();
-        if (tmp != null) tmp.text = formattedText;
+        if (tmp != null)
+        {
+            tmp.text = formattedText;
+            SettingsTextScaler.AddTo(tmp); // follow the player's Text Size setting
+        }
 
         if (historyScrollRect != null)
         {

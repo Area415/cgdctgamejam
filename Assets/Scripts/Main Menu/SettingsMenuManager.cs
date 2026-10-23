@@ -30,6 +30,7 @@ public class SettingsMenuManager : MonoBehaviour
     public Slider MasterVolumeSlider;
     public Slider MusicVolumeSlider;
     public Slider SFXVolumeSlider;
+    [Tooltip("No longer used: volume now goes through GameSettings. Kept so existing scene references don't break.")]
     public AudioMixer MainAudioMixer;
 
     [Header("Text Speed Buttons")]
@@ -66,9 +67,32 @@ public class SettingsMenuManager : MonoBehaviour
     private int TextSpeedIndex = 0;
 
 
+    private void Awake()
+    {
+        // Sliders now work in 0..1 (converted to decibels by GameSettings),
+        // so the middle of the slider sounds like half volume.
+        SetupVolumeSlider(MasterVolumeSlider);
+        SetupVolumeSlider(MusicVolumeSlider);
+        SetupVolumeSlider(SFXVolumeSlider);
+    }
+
+    private static void SetupVolumeSlider(Slider slider)
+    {
+        if (slider == null) return;
+        slider.minValue = 0f;
+        slider.maxValue = 1f;
+        slider.wholeNumbers = false;
+    }
+
     private void OnEnable()
     {
         LoadSettings();
+    }
+
+    // Leaving the menu any other way (e.g. switching cyberdeck tabs) drops unsaved changes.
+    private void OnDisable()
+    {
+        RevertUnsavedChanges();
     }
 
     private void Start()
@@ -107,6 +131,7 @@ public class SettingsMenuManager : MonoBehaviour
         if (BigButton != null) BigButton.GetComponent<Image>().sprite = UnselectedBigButton;
 
         TextSizeIndex = 0;
+        GameSettings.Preview(TextSpeedIndex, TextSizeIndex);
     }
     public void TextSizeMidPressed()
     {
@@ -115,6 +140,7 @@ public class SettingsMenuManager : MonoBehaviour
         if (BigButton != null) BigButton.GetComponent<Image>().sprite = UnselectedBigButton;
 
         TextSizeIndex = 1;
+        GameSettings.Preview(TextSpeedIndex, TextSizeIndex);
     }
     public void TextSizeBigPressed()
     {
@@ -123,6 +149,7 @@ public class SettingsMenuManager : MonoBehaviour
         if (SmallButton != null) SmallButton.GetComponent<Image>().sprite = UnselectedSmallButton;
 
         TextSizeIndex = 2;
+        GameSettings.Preview(TextSpeedIndex, TextSizeIndex);
     }
 
     //TEXT SPEED
@@ -130,10 +157,9 @@ public class SettingsMenuManager : MonoBehaviour
     {
         if (TextSpeedDropdown != null)
         {
-            int index = TextSpeedDropdown.value;
-            PlayerPrefs.SetInt("TextSpeedIndex", index);
-            PlayerPrefs.Save();
-            Debug.Log("TextSpeedIndex: " + index);
+            TextSpeedIndex = TextSpeedDropdown.value;
+            GameSettings.Preview(TextSpeedIndex, TextSizeIndex);
+            GameSettings.Save();
         }
     }
 
@@ -144,6 +170,7 @@ public class SettingsMenuManager : MonoBehaviour
         if (TSp2Button != null) TSp2Button.GetComponent<Image>().sprite = Unselected2XButton;
 
         TextSpeedIndex = 0;
+        GameSettings.Preview(TextSpeedIndex, TextSizeIndex);
     }
     public void TextSpeed15XPressed()
     {
@@ -152,6 +179,7 @@ public class SettingsMenuManager : MonoBehaviour
         if (TSp2Button != null) TSp2Button.GetComponent<Image>().sprite = Unselected2XButton;
 
         TextSpeedIndex = 1;
+        GameSettings.Preview(TextSpeedIndex, TextSizeIndex);
     }
     public void TextSpeed2XPressed()
     {
@@ -160,25 +188,30 @@ public class SettingsMenuManager : MonoBehaviour
         if (TSp15Button != null) TSp15Button.GetComponent<Image>().sprite = Unselected15XButton;
 
         TextSpeedIndex = 2;
+        GameSettings.Preview(TextSpeedIndex, TextSizeIndex);
     }
 
     //VOLUME
-    public void ChangeMasterVolume()
+    public void ChangeMasterVolume() => PreviewVolumesFromSliders();
+    public void ChangeMusicVolume()  => PreviewVolumesFromSliders();
+    public void ChangeSFXVolume()    => PreviewVolumesFromSliders();
+
+    // Sends all slider values to GameSettings. A menu without a given slider
+    // (e.g. the cyberdeck has no Master slider) keeps that volume as it is.
+    private void PreviewVolumesFromSliders()
     {
-        if (MasterVolumeSlider != null && MainAudioMixer != null)
-            MainAudioMixer.SetFloat("MasterVolume", MasterVolumeSlider.value);
+        GameSettings.PreviewVolumes(
+            MasterVolumeSlider != null ? MasterVolumeSlider.value : GameSettings.MasterVolume,
+            MusicVolumeSlider  != null ? MusicVolumeSlider.value  : GameSettings.MusicVolume,
+            SFXVolumeSlider    != null ? SFXVolumeSlider.value    : GameSettings.SfxVolume);
     }
 
-    public void ChangeMusicVolume()
+    // Moves the sliders to match GameSettings without triggering their change events.
+    private void SyncVolumeSliders()
     {
-        if (MusicVolumeSlider != null && MainAudioMixer != null)
-            MainAudioMixer.SetFloat("MusicVolume", MusicVolumeSlider.value);
-    }
-
-    public void ChangeSFXVolume()
-    {
-        if (SFXVolumeSlider != null && MainAudioMixer != null)
-            MainAudioMixer.SetFloat("SFXVolume", SFXVolumeSlider.value);
+        if (MasterVolumeSlider != null) MasterVolumeSlider.SetValueWithoutNotify(GameSettings.MasterVolume);
+        if (MusicVolumeSlider  != null) MusicVolumeSlider.SetValueWithoutNotify(GameSettings.MusicVolume);
+        if (SFXVolumeSlider    != null) SFXVolumeSlider.SetValueWithoutNotify(GameSettings.SfxVolume);
     }
 
     public void ExitSettingsMenu()
@@ -191,43 +224,27 @@ public class SettingsMenuManager : MonoBehaviour
     public void SaveSettings()
     {
         //Volume
-        if (MasterVolumeSlider != null) PlayerPrefs.SetFloat("MasterVolume", MasterVolumeSlider.value);
-        if (MusicVolumeSlider != null) PlayerPrefs.SetFloat("MusicVolume", MusicVolumeSlider.value);
-        if (SFXVolumeSlider != null) PlayerPrefs.SetFloat("SFXVolume", SFXVolumeSlider.value);
+        PreviewVolumesFromSliders();
 
-        //Text Speed
-        PlayerPrefs.SetInt("TextSpeedIndex", TextSpeedIndex);
+        //Text Speed + Size (through GameSettings so the dialogue updates too)
+        GameSettings.Preview(TextSpeedIndex, TextSizeIndex);
 
-        //Text Size
-        PlayerPrefs.SetInt("TextSizeIndex", TextSizeIndex);
-
-        PlayerPrefs.Save();
+        GameSettings.Save();
         Debug.Log("Settings saved!");
     }
 
     public void LoadSettings()
     {
         //Volume
-        if (MasterVolumeSlider != null && MainAudioMixer != null)
-        {
-            MasterVolumeSlider.value = PlayerPrefs.GetFloat("MasterVolume", 0f);
-            MainAudioMixer.SetFloat("MasterVolume", MasterVolumeSlider.value);
-        }
+        SyncVolumeSliders();
 
-        if (MusicVolumeSlider != null && MainAudioMixer != null)
-        {
-            MusicVolumeSlider.value = PlayerPrefs.GetFloat("MusicVolume", 0f);
-            MainAudioMixer.SetFloat("MusicVolume", MusicVolumeSlider.value);
-        }
-
-        if (SFXVolumeSlider != null && MainAudioMixer != null)
-        {
-            SFXVolumeSlider.value = PlayerPrefs.GetFloat("SFXVolume", 0f);
-            MainAudioMixer.SetFloat("SFXVolume", SFXVolumeSlider.value);
-        }
+        // Read BOTH saved values before touching any buttons. Each button press
+        // re-previews speed + size together, so both must already be correct.
+        TextSpeedIndex = GameSettings.TextSpeedIndex;
+        TextSizeIndex  = GameSettings.TextSizeIndex;
 
         //Text Speed
-        TextSpeedIndex = PlayerPrefs.GetInt("TextSpeedIndex", 0);
+        TextSpeedIndex = GameSettings.TextSpeedIndex;
         switch (TextSpeedIndex)
         {
             case 0:
@@ -242,7 +259,7 @@ public class SettingsMenuManager : MonoBehaviour
         }
 
         //Text Size
-        TextSizeIndex = PlayerPrefs.GetInt("TextSizeIndex", 1);
+        TextSizeIndex = GameSettings.TextSizeIndex;
         switch (TextSizeIndex)
         {
             case 0:
@@ -261,24 +278,18 @@ public class SettingsMenuManager : MonoBehaviour
 
     private void RevertUnsavedChanges()
     {
+        GameSettings.Revert();
+
         //Volume
-        float masterVolume = PlayerPrefs.GetFloat("MasterVolume", 0f);
-        float musicVolume = PlayerPrefs.GetFloat("MusicVolume", 0f);
-        float sfxVolume = PlayerPrefs.GetFloat("SFXVolume", 0f);
+        SyncVolumeSliders();
 
-        if (MasterVolumeSlider != null) MasterVolumeSlider.SetValueWithoutNotify(masterVolume);
-        if (MusicVolumeSlider != null) MusicVolumeSlider.SetValueWithoutNotify(musicVolume);
-        if (SFXVolumeSlider != null) SFXVolumeSlider.SetValueWithoutNotify(sfxVolume);
-
-        if (MainAudioMixer != null)
-        {
-            MainAudioMixer.SetFloat("MasterVolume", masterVolume);
-            MainAudioMixer.SetFloat("MusicVolume", musicVolume);
-            MainAudioMixer.SetFloat("SFXVolume", sfxVolume);
-        }
+        // Read BOTH saved values before touching any buttons. Each button press
+        // re-previews speed + size together, so both must already be correct.
+        TextSpeedIndex = GameSettings.TextSpeedIndex;
+        TextSizeIndex  = GameSettings.TextSizeIndex;
 
         //Text Speed
-        TextSpeedIndex = PlayerPrefs.GetInt("TextSpeedIndex", 0);
+        TextSpeedIndex = GameSettings.TextSpeedIndex;
         switch (TextSpeedIndex)
         {
             case 0:
@@ -293,7 +304,7 @@ public class SettingsMenuManager : MonoBehaviour
         }
 
         //Text Size
-        TextSizeIndex = PlayerPrefs.GetInt("TextSizeIndex", 1);
+        TextSizeIndex = GameSettings.TextSizeIndex;
         switch (TextSizeIndex)
         {
             case 0:
