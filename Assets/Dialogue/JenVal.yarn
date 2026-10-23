@@ -467,7 +467,7 @@ title: TransporterPod
 <<place Luna_Neutral>>
 <<expression Luna_Neutral arms_neutral>>
 <<fadeIn 2>>
-Luna: <i>The bird-bro takes off in a huff and that’s when I see it: a sleek pod, half-buried in garbage.</i>
+Luna: <i>The bird-bro takes off and that’s when I see it: a sleek pod, half-buried in garbage.</i>
 Luna: So the app didn’t crash out. But who leaves an AGENTS delivery pod out here…?
 <<expression Luna_Neutral arms_delivery_dropped>>
 <<pose NubsPod PodRattle>>
