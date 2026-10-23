@@ -11,6 +11,12 @@ public class ChatDialogueViewOptionsButton : MonoBehaviour
 
     private TMP_Text? TextView => GetComponentInChildren<TMP_Text>();
 
+    private void Awake()
+    {
+        // Follow the player's Text Size setting.
+        if (TextView != null) SettingsTextScaler.AddTo(TextView);
+    }
+
     public string Text
     {
         get => (TextView != null) ? TextView.text : string.Empty;

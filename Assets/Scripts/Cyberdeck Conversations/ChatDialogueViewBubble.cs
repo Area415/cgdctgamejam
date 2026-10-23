@@ -14,6 +14,12 @@ public class ChatDialogueViewBubble : MonoBehaviour
 
     public bool HasIndicator => typingIndicator != null;
 
+    private void Awake()
+    {
+        // Follow the player's Text Size setting.
+        if (TextView != null) SettingsTextScaler.AddTo(TextView);
+    }
+
     public void ShowTyping()
     {
         if (typingIndicator != null)
