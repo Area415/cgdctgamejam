@@ -35,7 +35,15 @@ public class SkipModeController : MonoBehaviour {
       originalUseFade = linePresenter.useFadeEffect;
     }
     UpdateVisuals();
+
+    if (dialogueRunner != null) {
+            dialogueRunner.onNodeStart.AddListener(StopSkippingOnNewNode);
+    }
   }
+
+private void StopSkippingOnNewNode(string nodeName) {
+        ForceOff();
+}  
 
 void Update() {
   if (!isSkip) return;

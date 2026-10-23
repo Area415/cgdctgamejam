@@ -147,6 +147,7 @@ public class VisualNovel : MonoBehaviour {
 
     // fades in a black screen over {time} seconds
     private Coroutine FadeIn(float time = 1f) {
+        FindAnyObjectByType<SkipModeController>()?.ForceOff();
         return StartCoroutine(fadeOverlay.FadeIn(time));
     }
 
