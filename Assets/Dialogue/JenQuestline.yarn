@@ -59,6 +59,10 @@ Luna: (Why is he lingering? Awkward.)
    <<camera BlackImage>>
    <<fadeIn 1>>
    //Only show a black screen and the dialogue box
+   // Cyberdeck Home: job done
+   <<set_job "LAST JOB" "COMPLETED" "#4153">>
+   <<set_job_progress 1>>
+   <<set_rating 1 "1 new review">>
    Luna: <i>20 minutes later, I get a negative rating on the SL0P app and a violation as the cherry on top. It said the food looked like it'd been tampered with…</i>
    Luna: …
    Nubs: I was hungry…
@@ -133,6 +137,10 @@ Luna: (I can't afford another violation on the SL0P app.)
    <<fadeIn 1>>
    <<set $badend += 1>>
    //I imagine a black screen and the dialogue box
+   // Cyberdeck Home: job done
+   <<set_job "LAST JOB" "COMPLETED" "#4153">>
+   <<set_job_progress 1>>
+   <<set_rating 1 "1 new review">>
    Luna: <i>20 minutes later, I get a negative rating on the SL0P app and a violation as the cherry on top. It said the food looked like it'd been tampered with.</i>
    Luna: <i>Thanks, Nubs…</i>
    Luna: <i>But who cares? A person who lives in that building is rich enough to get more food without batting an eye…</i>
@@ -228,6 +236,10 @@ Benji: You wouldn't understand…
    <<camera BlackImage>>
    <<fadeIn 1>>
    //I imagine a black screen and the dialogue box
+   // Cyberdeck Home: job done
+   <<set_job "LAST JOB" "COMPLETED" "#4153">>
+   <<set_job_progress 1>>
+   <<set_rating 1 "1 new review">>
    Luna: <i>20 minutes later, I get a negative rating on the SL0P app and a violation as the cherry on top. It said the food looked like it'd been tampered with.</i>
    Luna: <i>Thanks, Nubs…</i>
    Luna: <i>But who cares? A person who lives in that building and sells his soul to AGENTS is clearly rich enough to get more food…</i>
@@ -280,6 +292,10 @@ Luna: G-Gotta go!
 <<camera BlackImage>>
 <<fadeIn 1>>
 //I imagine a black screen and the dialogue box
+// Cyberdeck Home: job done
+<<set_job "LAST JOB" "COMPLETED" "#4153">>
+<<set_job_progress 1>>
+<<set_rating 5 "1 new review">>
 Luna: <i>20 minutes later, I get an extra tip notification and a five-star rating from Benji.</i>
 Luna: <i>Maybe there's more to Frisscity folk than meets the eye…</i>
 <<fadeOut 1>>
@@ -459,6 +475,10 @@ Luna: Let's just get out of here.
 <<camera BlackImage>>
 <<fadeIn 1>>
 <<wait 2>>
+// Cyberdeck Home: job done
+<<set_job "LAST JOB" "COMPLETED" "#4154">>
+<<set_job_progress 1>>
+<<set_rating 1 "1 new review">>
 Luna: <i>20 minutes later, I get a negative rating on the SL0P app AND a violation as the cherry on top. It notes the doormat stain as damaged property.</i>
 Luna: <i>But who cares? A person who lives in this building is rich enough to buy anything without blinking an augmented eye…</i>
 <<fadeOut 1>>
@@ -523,6 +543,10 @@ Luna: (I can’t afford another bad rating on the SL0P app.)
    <<camera BlackImage>>
    <<fadeIn 1>>
    <<wait 1>>
+   // Cyberdeck Home: job done
+   <<set_job "LAST JOB" "COMPLETED" "#4154">>
+   <<set_job_progress 1>>
+   <<set_rating 1 "1 new review">>
    Luna: <i>20 minutes later, I get a negative rating on the SL0P app AND a violation as the cherry on top. It notes the doormat stain as damaged property.</i>
    Luna: <i>But who cares? A person who lives in that building is rich enough to buy anything without blinking an augmented eye…</i>
    <<fadeOut 1>>
@@ -721,6 +745,10 @@ title: Queenie_Ideas
    <<fadeOut 1>>
    <<camera BlackImage>>
    <<fadeIn 1>>
+   // Cyberdeck Home: job done
+   <<set_job "LAST JOB" "COMPLETED" "#4154">>
+   <<set_job_progress 1>>
+   <<set_rating 1 "1 new review">>
    Luna: <i>20 minutes later, I get a negative rating on the SL0P app AND a violation as the cherry on top. It notes the doormat stain as damaged property.</i>
    Luna: <i>But who cares? A person who lives in that building is clearly rich enough to buy anything they want without blinking an augmented eye…</i>
    <<fadeOut 1>>
@@ -752,6 +780,10 @@ title: Influencer_Good_Outcome
 <<camera Bridge>>
 <<fadeIn 1>>
 <<wait 1>>
+// Cyberdeck Home: job done
+<<set_job "LAST JOB" "COMPLETED" "#4154">>
+<<set_job_progress 1>>
+// TODO (Jen): does Queenie leave a rating? e.g. <<set_rating 5 "1 new review">>
 Luna: <i>I wrap up my delivery job with Nubs and make my way over to The Bridge.</i>
 Luna: <i>The shadow of Root Town lingers in the distance across the ocean.</i>
 <<place Luna_Neutral>>

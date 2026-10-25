@@ -3,23 +3,48 @@ using UnityEngine.UI;
 using TMPro;
 using System.Collections.Generic;
 
+/// <summary>
+/// The cyberdeck HISTORY panel.
+///
+/// Lines are recorded in ONE shared list for the whole play session, no matter
+/// which scene is running (TristynScene has no History panel, but its lines are
+/// still recorded). Each scene's History panel shows that shared list, so the
+/// history carries over when the game loads a new scene.
+///
+/// Starting from the main menu clears it (MainMenuManager calls ClearAll()).
+/// </summary>
 public class DialogueHistory : MonoBehaviour 
 {
     [SerializeField] private Transform historyContentContainer;
     [SerializeField] private GameObject historyLinePrefab;
     [SerializeField] private ScrollRect historyScrollRect;
 
-    private void OnEnable()
+    // ---------- Shared, session-wide record ----------
+
+    private const int MaxLines = 500; // keep the panel light
+    private static readonly List<string> Lines = new List<string>();
+    private static event System.Action<string> LineAdded;
+    private static int totalRecorded; // counts every line ever recorded this session
+
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+    private static void Init()
     {
-        Yarn.Unity.LinePresenter.OnLineDelivered += HandleNewDialogue; 
+        Lines.Clear();
+        totalRecorded = 0;
+        LineAdded = null;
+        // Listen for every delivered line, in every scene, for the whole session.
+        Yarn.Unity.LinePresenter.OnLineDelivered -= Record;
+        Yarn.Unity.LinePresenter.OnLineDelivered += Record;
     }
 
-    private void OnDisable()
+    /// <summary>Forget everything (called when the main menu loads).</summary>
+    public static void ClearAll()
     {
-        Yarn.Unity.LinePresenter.OnLineDelivered -= HandleNewDialogue;
+        Lines.Clear();
+        totalRecorded = 0;
     }
 
-    private void HandleNewDialogue(string characterName, string text)
+    private static void Record(string characterName, string text)
     {
         string lineText = text;
         
@@ -34,13 +59,41 @@ public class DialogueHistory : MonoBehaviour
             string hexColor = GetColorForCharacter(characterName);
             lineText = $"<b><color={hexColor}>{characterName.ToUpper()}</color></b>\n{lineText}";    
         }
-        /*if (!string.IsNullOrEmpty(characterName) && !text.StartsWith(characterName))
-        {
-            //lineText = $"<b>{characterName}:</b> {lineText}";
-            lineText = $"<b><color=#C87CE8>{characterName.ToUpper()}</color></b>\n{text}";
-        }*/
 
-        AddLineToHistory(lineText);
+        Lines.Add(lineText);
+        totalRecorded++;
+        if (Lines.Count > MaxLines) Lines.RemoveAt(0);
+        LineAdded?.Invoke(lineText);
+    }
+
+    // ---------- This scene's panel ----------
+
+    private int shownTotal; // how many of the recorded lines this panel already shows
+
+    private void OnEnable()
+    {
+        CatchUp();
+        LineAdded += OnLineAdded;
+    }
+
+    private void OnDisable()
+    {
+        LineAdded -= OnLineAdded;
+    }
+
+    private void OnLineAdded(string line)
+    {
+        AddLineToHistory(line);
+        shownTotal = totalRecorded;
+    }
+
+    // Show any lines recorded while this panel was hidden or before this scene loaded.
+    private void CatchUp()
+    {
+        int firstInList = totalRecorded - Lines.Count;
+        for (int t = Mathf.Max(shownTotal, firstInList); t < totalRecorded; t++)
+            AddLineToHistory(Lines[t - firstInList]);
+        shownTotal = totalRecorded;
     }
 
     private void AddLineToHistory(string formattedText)
@@ -62,7 +115,7 @@ public class DialogueHistory : MonoBehaviour
         }
     }
 
-    private string GetColorForCharacter(string charName)
+    private static string GetColorForCharacter(string charName)
     {
         string nameLower = charName.Trim().ToLower();
 

@@ -16,6 +16,9 @@ public class MainMenuManager : MonoBehaviour
 
     void Start()
     {
+         // Back at the title screen: start the next run with an empty history.
+         DialogueHistory.ClearAll();
+
          if (SettingsMenu != null) {
                 SettingsMenu.gameObject.SetActive(false);
          }

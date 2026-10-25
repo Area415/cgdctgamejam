@@ -12,6 +12,12 @@ public class Location : MonoBehaviour
     [SerializeField] internal Transform cameraMarker;
     [SerializeField] internal GameObject background;
 
+    [Header("Cyberdeck Home (leave District Name blank to keep the previous location)")]
+    [SerializeField] internal string districtName;      // e.g. "UNDERSTORY"
+    [SerializeField] internal string districtSubtitle;  // e.g. "Frisscity · Area 415"
+    [SerializeField] internal string airValue;          // e.g. "HAZY"
+    [SerializeField] internal string airNote;           // just the number, e.g. "3" ("AGENTS sats overhead:" is in the card art)
+
     private Transform FindMarkerTransform(string name) {
         foreach (var marker in markers) {
             if (marker.name.Equals(name, System.StringComparison.InvariantCultureIgnoreCase)) {

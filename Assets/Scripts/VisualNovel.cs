@@ -70,6 +70,18 @@ public class VisualNovel : MonoBehaviour {
         // <<stopMusic>>
         dialogueRunner.AddCommandHandler("stopMusic", StopMusic);
 
+        // Cyberdeck HOME tab job card:
+        // <<set_job "CURRENT JOB" "IN PROGRESS" "#4153">>
+        dialogueRunner.AddCommandHandler<string, string, string>("set_job", CyberdeckHomeStatus.SetJob);
+        // <<set_job_route "Boo Boo's Boba Emporium · Understory" "Penthouse · Meridian District">>
+        dialogueRunner.AddCommandHandler<string, string>("set_job_route", CyberdeckHomeStatus.SetJobRoute);
+        // <<set_job_payout "₿ 12.50 (−20% late fee)">>
+        dialogueRunner.AddCommandHandler<string>("set_job_payout", CyberdeckHomeStatus.SetJobPayout);
+        // <<set_job_progress 0.35>>   (0 = picked up, 1 = delivered)
+        dialogueRunner.AddCommandHandler<float>("set_job_progress", CyberdeckHomeStatus.SetJobProgress);
+        // <<set_rating 5 "1 new review">>   (0-5 stars)
+        dialogueRunner.AddCommandHandler<float, string>("set_rating", CyberdeckHomeStatus.SetRating);
+
         //Loading other scenes
         dialogueRunner.AddCommandHandler<string>("loadScene", LoadScene);
 
@@ -113,6 +125,9 @@ public class VisualNovel : MonoBehaviour {
             otherLocation.background.SetActive(otherLocation == location);
         }
       }
+
+        // Update the cyberdeck Home tab's location (skipped if District Name is blank).
+        CyberdeckHomeStatus.SetLocation(location);
     }
 
     // looks for character named {characterName} and moves it to the location 
