@@ -155,4 +155,28 @@ public class ChatDialogueView : DialoguePresenterBase
             }
         }
     }
+
+    //For the phone batches
+    public void SpawnInstantMessage(string characterName, string messageText)
+    {
+        if (bubbleContainer == null) return;
+
+        var prefab = defaultBubblePrefab;
+        if (characterName != null && characters.TryGetValue(characterName, out var characterBubble))
+        {
+            prefab = characterBubble;
+        }
+
+        if (prefab == null) return;
+
+        var bubble = Instantiate(prefab, bubbleContainer);
+        bubble.ShowText(messageText);
+
+        Canvas.ForceUpdateCanvases();
+        var scrollRect = bubbleContainer.GetComponentInParent<UnityEngine.UI.ScrollRect>();
+        if (scrollRect != null)
+        {
+            scrollRect.verticalNormalizedPosition = 0f;
+        }
+    }
 }
